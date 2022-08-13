@@ -3,3 +3,4 @@
 /wasi-sdk
 /wren.wasm
 /wren.ir
+/.vscode
