@@ -1,5 +1,7 @@
 package wren
 
+//go:generate go run build-wren.go
+
 import (
 	"io"
 	"strconv"

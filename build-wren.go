@@ -26,7 +26,7 @@ import (
 
 // TODO: reference wasi_snapshot_preview1 from wazero into wren-go internals.
 
-// TODO: fetching and extracting wasi-sdk from this script is broken. executable files are empty for some reason
+// TODO: fetching and extracting wasi-sdk from this script is broken. executable files are empty for some reason. For now it is best tp manually download wasi-sdk-14 and store it in ./wasi-sdk.
 
 func main() {
 	// Fetch wren

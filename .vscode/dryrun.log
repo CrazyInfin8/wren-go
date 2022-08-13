@@ -1,6 +1,0 @@
-make.exe --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/infin8/Desktop/wren-go'
-make: Leaving directory '/home/infin8/Desktop/wren-go'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
