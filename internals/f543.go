@@ -80,7 +80,7 @@ lbl0:
 	// const
 	s1i32 = 48
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// const
 	s0i32 = -1
 	// return

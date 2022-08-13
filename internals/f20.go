@@ -54,7 +54,7 @@ func f20(ctx *Context, l0 int32) int32 {
 	// set_local
 	l4 = s0i32
 	// const
-	s0i32 = 39408
+	s0i32 = 39376
 	// set_local
 	l5 = s0i32
 	// const

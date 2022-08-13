@@ -150,7 +150,7 @@ func f497(ctx *Context, l0 int32, l1 int32) {
 	// get_local
 	s1i32 = l6
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// get_local
 	s0i32 = l4
 	// load: i32.load8_u
@@ -262,7 +262,7 @@ lbl1:
 	// get_local
 	s1i32 = l21
 	// call
-	s0f64 = f596(ctx, s0i32, s1i32)
+	s0f64 = f597(ctx, s0i32, s1i32)
 	// set_local
 	l22 = s0f64
 	// get_local
@@ -292,7 +292,7 @@ lbl0:
 	// get_local
 	s0i32 = l25
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42156):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42124):]))
 	// set_local
 	l26 = s0i32
 	// const

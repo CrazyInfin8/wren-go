@@ -18,7 +18,7 @@ func f472(ctx *Context) int32 {
 	// get_local
 	s0i32 = l0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+40696):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+40664):]))
 	// set_local
 	l1 = s0i32
 	// get_local

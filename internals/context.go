@@ -16,10 +16,10 @@ type Context struct {
 
 func NewContext(f ImportedFuncs) *Context {
 	c := &Context{Mem: newMemory(), f: f}
-	c.G0 = 109840
+	c.G0 = 109792
 	c.G1 = 22844
-	c.G2 = 23328
-	c.G3 = 39392
+	c.G2 = 39368
+	c.G3 = 21124
 	return c
 }
 func (c *Context) Copy() *Context {
@@ -317,10 +317,10 @@ func init() {
 	table[200] = tableEntry{f: f531, numParams: 3}
 	table[201] = tableEntry{f: f5, numParams: 2}
 	table[202] = tableEntry{f: f7, numParams: 3}
-	table[203] = tableEntry{f: f562, numParams: 1}
-	table[204] = tableEntry{f: f564, numParams: 3}
-	table[205] = tableEntry{f: f566, numParams: 3}
-	table[206] = tableEntry{f: f574, numParams: 3}
-	table[207] = tableEntry{f: f576, numParams: 3}
+	table[203] = tableEntry{f: f559, numParams: 3}
+	table[204] = tableEntry{f: f557, numParams: 1}
+	table[205] = tableEntry{f: f561, numParams: 3}
+	table[206] = tableEntry{f: f563, numParams: 3}
+	table[207] = tableEntry{f: f577, numParams: 3}
 	table[208] = tableEntry{f: f637, numParams: 3}
 }

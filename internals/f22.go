@@ -210,7 +210,7 @@ func f22(ctx *Context, l0 int32, l1 int32) {
 	// set_local
 	l9 = s0i32
 	// const
-	s0i32 = 39408
+	s0i32 = 39376
 	// set_local
 	l10 = s0i32
 	// const
@@ -449,7 +449,7 @@ lbl2:
 	// set_local
 	l40 = s0i32
 	// const
-	s0i32 = 39408
+	s0i32 = 39376
 	// set_local
 	l41 = s0i32
 	// const
@@ -557,7 +557,7 @@ lbl2:
 	// set_local
 	l55 = s0i32
 	// const
-	s0i32 = 39408
+	s0i32 = 39376
 	// set_local
 	l56 = s0i32
 	// const

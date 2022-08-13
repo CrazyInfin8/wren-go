@@ -22,7 +22,7 @@ func f603(ctx *Context) int32 {
 	// const
 	s1i32 = 0
 	// load: i64.load
-	s1i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+43248):]))
+	s1i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+43200):]))
 	// const
 	s2i64 = 6364136223846793005
 	// binary: i64.mul
@@ -34,7 +34,7 @@ func f603(ctx *Context) int32 {
 	// tee_local
 	l0 = s1i64
 	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+43248):], uint64(s1i64))
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+43200):], uint64(s1i64))
 	// get_local
 	s0i64 = l0
 	// const

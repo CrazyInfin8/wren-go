@@ -939,7 +939,7 @@ lbl2:
 	// get_local
 	s1i32 = l79
 	// call
-	s0i32 = f579(ctx, s0i32, s1i32)
+	s0i32 = f582(ctx, s0i32, s1i32)
 	// set_local
 	l80 = s0i32
 	// block
@@ -988,7 +988,7 @@ lbl4:
 	// get_local
 	s1i32 = l85
 	// call
-	s0i32 = f579(ctx, s0i32, s1i32)
+	s0i32 = f582(ctx, s0i32, s1i32)
 	// set_local
 	l86 = s0i32
 	// block

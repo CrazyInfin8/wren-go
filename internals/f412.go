@@ -456,7 +456,7 @@ func f412(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s0i32 = l5
 	// call
-	s0i32 = f585(ctx, s0i32)
+	s0i32 = f583(ctx, s0i32)
 	// set_local
 	l6 = s0i32
 	// get_local

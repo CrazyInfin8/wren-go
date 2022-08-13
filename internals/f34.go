@@ -1362,7 +1362,7 @@ lbl11:
 	// get_local
 	s2i32 = l129
 	// call
-	s0i32 = f584(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f579(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l130 = s0i32
 	// get_local

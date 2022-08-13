@@ -1384,7 +1384,7 @@ lbl11:
 	// get_local
 	s0i32 = l128
 	// call
-	s0i32 = f597(ctx, s0i32)
+	s0i32 = f589(ctx, s0i32)
 	// set_local
 	l129 = s0i32
 	// const

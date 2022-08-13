@@ -6,7 +6,7 @@ func f554(ctx *Context, l0 int32) {
 	// call
 	f552(ctx)
 	// call
-	f578(ctx)
+	f565(ctx)
 	// get_local
 	s0i32 = l0
 	// call

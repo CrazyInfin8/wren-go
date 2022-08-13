@@ -56,7 +56,7 @@ func f533(ctx *Context, l0 int32) int32 {
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41684):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41652):]))
 	// br_if
 	if s0i32 != 0 {
 		goto lbl0
@@ -66,7 +66,7 @@ func f533(ctx *Context, l0 int32) int32 {
 	// call
 	s0i32 = f543(ctx, s0i32)
 	// const
-	s1i32 = 109840
+	s1i32 = 109792
 	// binary: i32.sub
 	s0i32 = s0i32 - s1i32
 	// tee_local
@@ -91,7 +91,7 @@ func f533(ctx *Context, l0 int32) int32 {
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42132):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42100):]))
 	// tee_local
 	l4 = s0i32
 	// br_if
@@ -103,13 +103,13 @@ func f533(ctx *Context, l0 int32) int32 {
 	// const
 	s1i64 = -1
 	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42144):], uint64(s1i64))
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42112):], uint64(s1i64))
 	// const
 	s0i32 = 0
 	// const
 	s1i64 = 281474976776192
 	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42136):], uint64(s1i64))
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42104):], uint64(s1i64))
 	// const
 	s0i32 = 0
 	// get_local
@@ -129,19 +129,19 @@ func f533(ctx *Context, l0 int32) int32 {
 	// tee_local
 	l4 = s1i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42132):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42100):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42152):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42120):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42104):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42072):], uint32(s1i32))
 	// end_block
 lbl1:
 	// const
@@ -149,43 +149,43 @@ lbl1:
 	// get_local
 	s1i32 = l2
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42112):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42080):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
-	s1i32 = 109840
+	s1i32 = 109792
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42108):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42076):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
-	s1i32 = 109840
+	s1i32 = 109792
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41676):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41644):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l4
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41696):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = -1
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41692):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
 	// loop
 lbl2:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41720
+	s1i32 = 41688
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41708
+	s2i32 = 41676
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -197,7 +197,7 @@ lbl2:
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41700
+	s2i32 = 41668
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -207,7 +207,7 @@ lbl2:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41712
+	s1i32 = 41680
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
@@ -217,13 +217,13 @@ lbl2:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41728
+	s1i32 = 41696
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41716
+	s2i32 = 41684
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -239,13 +239,13 @@ lbl2:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41736
+	s1i32 = 41704
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41724
+	s2i32 = 41692
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -261,7 +261,7 @@ lbl2:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41732
+	s1i32 = 41700
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
@@ -290,11 +290,11 @@ lbl2:
 	}
 	// end
 	// const
-	s0i32 = 109840
+	s0i32 = 109792
 	// const
 	s1i32 = -8
 	// const
-	s2i32 = 109840
+	s2i32 = 109792
 	// binary: i32.sub
 	s1i32 = s1i32 - s2i32
 	// const
@@ -304,7 +304,7 @@ lbl2:
 	// const
 	s2i32 = 0
 	// const
-	s3i32 = 109840
+	s3i32 = 109792
 	// const
 	s4i32 = 8
 	// binary: i32.add
@@ -331,14 +331,16 @@ lbl2:
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l2
-	// get_local
-	s2i32 = l3
-	// binary: i32.sub
-	s1i32 = s1i32 - s2i32
 	// const
 	s2i32 = -56
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
+	// tee_local
+	l5 = s1i32
+	// get_local
+	s2i32 = l3
+	// binary: i32.sub
+	s1i32 = s1i32 - s2i32
 	// tee_local
 	l3 = s1i32
 	// const
@@ -352,35 +354,31 @@ lbl2:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42148):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42116):]))
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41688):], uint32(s1i32))
-	// const
-	s0i32 = 0
-	// get_local
-	s1i32 = l4
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41656):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l3
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
+	// const
+	s0i32 = 0
 	// get_local
-	s0i32 = l2
+	s1i32 = l4
+	// store: i32.store
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
 	// const
-	s1i32 = 109840
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// const
-	s1i32 = -52
+	s0i32 = 109792
+	// get_local
+	s1i32 = l5
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// const
 	s1i32 = 56
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// end_block
 lbl0:
 	// block
@@ -413,7 +411,7 @@ lbl0:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41660):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41628):]))
 	// tee_local
 	l6 = s0i32
 	// const
@@ -493,7 +491,7 @@ lbl0:
 	// tee_local
 	l0 = s0i32
 	// const
-	s1i32 = 41708
+	s1i32 = 41676
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// load: i32.load
@@ -517,7 +515,7 @@ lbl0:
 	// get_local
 	s1i32 = l0
 	// const
-	s2i32 = 41700
+	s2i32 = 41668
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -545,7 +543,7 @@ lbl0:
 	// binary: i32.and
 	s1i32 = s1i32 & s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// br
 	goto lbl16
 	// end_block
@@ -586,22 +584,18 @@ lbl16:
 	s1i32 = l5
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
-	// const
-	s1i32 = 4
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
 	// tee_local
 	l4 = s0i32
 	// get_local
 	s1i32 = l4
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+0):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+4):]))
 	// const
 	s2i32 = 1
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// br
 	goto lbl3
 	// end_block
@@ -611,7 +605,7 @@ lbl15:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41668):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41636):]))
 	// tee_local
 	l7 = s1i32
 	// binary: i32.le_u
@@ -786,7 +780,7 @@ lbl15:
 	// tee_local
 	l0 = s0i32
 	// const
-	s1i32 = 41708
+	s1i32 = 41676
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// load: i32.load
@@ -800,7 +794,7 @@ lbl15:
 	// get_local
 	s1i32 = l0
 	// const
-	s2i32 = 41700
+	s2i32 = 41668
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -830,7 +824,7 @@ lbl15:
 	// tee_local
 	l6 = s1i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// br
 	goto lbl19
 	// end_block
@@ -931,7 +925,7 @@ lbl19:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41700
+	s1i32 = 41668
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -939,7 +933,7 @@ lbl19:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41680):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41648):]))
 	// set_local
 	l4 = s0i32
 	// block
@@ -969,7 +963,7 @@ lbl19:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// get_local
 	s0i32 = l2
 	// set_local
@@ -1017,13 +1011,13 @@ lbl21:
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41680):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41648):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l5
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41668):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41636):], uint32(s1i32))
 	// br
 	goto lbl3
 	// end_block
@@ -1031,7 +1025,7 @@ lbl18:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41664):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41632):]))
 	// tee_local
 	l9 = s0i32
 	// unary: i32.eqz
@@ -1163,7 +1157,7 @@ lbl18:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// load: i32.load
@@ -1309,7 +1303,7 @@ lbl24:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41676):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41644):]))
 	// get_local
 	s1i32 = l0
 	// load: i32.load
@@ -1469,7 +1463,7 @@ lbl14:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41664):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41632):]))
 	// tee_local
 	l7 = s0i32
 	// unary: i32.eqz
@@ -1650,7 +1644,7 @@ lbl30:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// load: i32.load
@@ -2017,7 +2011,7 @@ lbl33:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// load: i32.load
@@ -2147,7 +2141,7 @@ lbl31:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41668):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41636):]))
 	// get_local
 	s2i32 = l2
 	// binary: i32.sub
@@ -2190,7 +2184,7 @@ lbl31:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41676):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41644):]))
 	// get_local
 	s1i32 = l8
 	// load: i32.load
@@ -2319,7 +2313,7 @@ lbl13:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41668):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41636):]))
 	// tee_local
 	l3 = s0i32
 	// get_local
@@ -2337,7 +2331,7 @@ lbl13:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41680):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41648):]))
 	// set_local
 	l4 = s0i32
 	// block
@@ -2383,13 +2377,13 @@ lbl13:
 	// get_local
 	s1i32 = l5
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41668):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41636):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41680):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41648):], uint32(s1i32))
 	// get_local
 	s0i32 = l4
 	// get_local
@@ -2425,13 +2419,9 @@ lbl45:
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// get_local
-	s0i32 = l3
+	s0i32 = l4
 	// get_local
-	s1i32 = l4
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// const
-	s1i32 = 4
+	s1i32 = l3
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// tee_local
@@ -2439,25 +2429,25 @@ lbl45:
 	// get_local
 	s1i32 = l3
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+0):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+4):]))
 	// const
 	s2i32 = 1
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41680):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41648):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41668):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41636):], uint32(s1i32))
 	// end_block
 lbl44:
 	// get_local
@@ -2476,7 +2466,7 @@ lbl43:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41672):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41640):]))
 	// tee_local
 	l0 = s0i32
 	// get_local
@@ -2494,7 +2484,7 @@ lbl43:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41684):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41652):]))
 	// tee_local
 	l3 = s0i32
 	// get_local
@@ -2522,13 +2512,13 @@ lbl43:
 	// get_local
 	s1i32 = l5
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l4
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
 	// get_local
 	s0i32 = l3
 	// get_local
@@ -2556,7 +2546,7 @@ lbl46:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42132):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42100):]))
 	// unary: i32.eqz
 	if s0i32 == 0 {
 		s0i32 = 1
@@ -2570,7 +2560,7 @@ lbl46:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42140):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42108):]))
 	// set_local
 	l4 = s0i32
 	// br
@@ -2582,13 +2572,13 @@ lbl48:
 	// const
 	s1i64 = -1
 	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42144):], uint64(s1i64))
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42112):], uint64(s1i64))
 	// const
 	s0i32 = 0
 	// const
 	s1i64 = 281474976776192
 	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42136):], uint64(s1i64))
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+42104):], uint64(s1i64))
 	// const
 	s0i32 = 0
 	// get_local
@@ -2606,19 +2596,19 @@ lbl48:
 	// binary: i32.xor
 	s1i32 = s1i32 ^ s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42132):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42100):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42152):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42120):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42104):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42072):], uint32(s1i32))
 	// const
 	s0i32 = 65536
 	// set_local
@@ -2673,7 +2663,7 @@ lbl47:
 	// const
 	s1i32 = 48
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// br
 	goto lbl3
 	// end_block
@@ -2682,7 +2672,7 @@ lbl49:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42100):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42068):]))
 	// tee_local
 	l3 = s0i32
 	// unary: i32.eqz
@@ -2699,7 +2689,7 @@ lbl49:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42092):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42060):]))
 	// tee_local
 	l4 = s0i32
 	// get_local
@@ -2745,7 +2735,7 @@ lbl51:
 	// const
 	s1i32 = 48
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// br
 	goto lbl3
 	// end_block
@@ -2753,7 +2743,7 @@ lbl50:
 	// const
 	s0i32 = 0
 	// load: i32.load8_u
-	s0i32 = int32(ctx.Mem[int(s0i32+42104)])
+	s0i32 = int32(ctx.Mem[int(s0i32+42072)])
 	// const
 	s1i32 = 4
 	// binary: i32.and
@@ -2768,7 +2758,7 @@ lbl50:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41684):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41652):]))
 	// tee_local
 	l4 = s0i32
 	// unary: i32.eqz
@@ -2782,7 +2772,7 @@ lbl50:
 		goto lbl54
 	}
 	// const
-	s0i32 = 42108
+	s0i32 = 42076
 	// set_local
 	l3 = s0i32
 	// loop
@@ -2867,7 +2857,7 @@ lbl54:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42136):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42104):]))
 	// tee_local
 	l3 = s0i32
 	// const
@@ -2948,7 +2938,7 @@ lbl57:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42100):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42068):]))
 	// tee_local
 	l3 = s0i32
 	// unary: i32.eqz
@@ -2964,7 +2954,7 @@ lbl57:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42092):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42060):]))
 	// tee_local
 	l4 = s0i32
 	// get_local
@@ -3122,7 +3112,7 @@ lbl52:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42140):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42108):]))
 	// tee_local
 	l4 = s1i32
 	// binary: i32.add
@@ -3261,13 +3251,13 @@ lbl9:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42104):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42072):]))
 	// const
 	s2i32 = 4
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42104):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42072):], uint32(s1i32))
 	// end_block
 lbl8:
 	// get_local
@@ -3369,7 +3359,7 @@ lbl7:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42092):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42060):]))
 	// get_local
 	s2i32 = l6
 	// binary: i32.add
@@ -3377,14 +3367,14 @@ lbl7:
 	// tee_local
 	l3 = s1i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42092):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42060):], uint32(s1i32))
 	// block
 	// get_local
 	s0i32 = l3
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42096):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42064):]))
 	// binary: i32.le_u
 	if uint32(s0i32) <= uint32(s1i32) {
 		s0i32 = 1
@@ -3400,7 +3390,7 @@ lbl7:
 	// get_local
 	s1i32 = l3
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42096):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42064):], uint32(s1i32))
 	// end_block
 lbl62:
 	// block
@@ -3410,7 +3400,7 @@ lbl62:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41684):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41652):]))
 	// tee_local
 	l4 = s0i32
 	// unary: i32.eqz
@@ -3424,7 +3414,7 @@ lbl62:
 		goto lbl66
 	}
 	// const
-	s0i32 = 42108
+	s0i32 = 42076
 	// set_local
 	l3 = s0i32
 	// loop
@@ -3475,7 +3465,7 @@ lbl66:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41676):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41644):]))
 	// tee_local
 	l3 = s0i32
 	// unary: i32.eqz
@@ -3509,7 +3499,7 @@ lbl69:
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41676):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41644):], uint32(s1i32))
 	// end_block
 lbl68:
 	// const
@@ -3521,45 +3511,45 @@ lbl68:
 	// get_local
 	s1i32 = l6
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42112):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42080):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42108):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42076):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = -1
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41692):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42132):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42100):]))
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41696):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42120):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42088):], uint32(s1i32))
 	// loop
 lbl70:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41720
+	s1i32 = 41688
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41708
+	s2i32 = 41676
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -3571,7 +3561,7 @@ lbl70:
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41700
+	s2i32 = 41668
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -3581,7 +3571,7 @@ lbl70:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41712
+	s1i32 = 41680
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
@@ -3591,13 +3581,13 @@ lbl70:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41728
+	s1i32 = 41696
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41716
+	s2i32 = 41684
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -3613,13 +3603,13 @@ lbl70:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41736
+	s1i32 = 41704
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
 	s1i32 = l3
 	// const
-	s2i32 = 41724
+	s2i32 = 41692
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -3635,7 +3625,7 @@ lbl70:
 	// get_local
 	s0i32 = l3
 	// const
-	s1i32 = 41732
+	s1i32 = 41700
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// get_local
@@ -3701,14 +3691,16 @@ lbl70:
 	l4 = s0i32
 	// get_local
 	s1i32 = l6
-	// get_local
-	s2i32 = l3
-	// binary: i32.sub
-	s1i32 = s1i32 - s2i32
 	// const
 	s2i32 = -56
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
+	// tee_local
+	l5 = s1i32
+	// get_local
+	s2i32 = l3
+	// binary: i32.sub
+	s1i32 = s1i32 - s2i32
 	// tee_local
 	l3 = s1i32
 	// const
@@ -3722,35 +3714,31 @@ lbl70:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42148):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42116):]))
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41688):], uint32(s1i32))
-	// const
-	s0i32 = 0
-	// get_local
-	s1i32 = l4
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41656):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l3
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
-	// get_local
-	s0i32 = l6
-	// get_local
-	s1i32 = l0
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
 	// const
-	s1i32 = -52
+	s0i32 = 0
+	// get_local
+	s1i32 = l4
+	// store: i32.store
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
+	// get_local
+	s0i32 = l0
+	// get_local
+	s1i32 = l5
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// const
 	s1i32 = 56
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// br
 	goto lbl63
 	// end_block
@@ -3834,7 +3822,7 @@ lbl65:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41672):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41640):]))
 	// get_local
 	s2i32 = l6
 	// binary: i32.add
@@ -3868,35 +3856,31 @@ lbl65:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42148):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42116):]))
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41688):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41656):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l5
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
 	// get_local
-	s0i32 = l11
+	s0i32 = l4
 	// get_local
-	s1i32 = l4
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// const
-	s1i32 = 4
+	s1i32 = l11
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// const
 	s1i32 = 56
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// br
 	goto lbl63
 	// end_block
@@ -3907,9 +3891,9 @@ lbl64:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41676):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41644):]))
 	// tee_local
-	l11 = s1i32
+	l8 = s1i32
 	// binary: i32.ge_u
 	if uint32(s0i32) >= uint32(s1i32) {
 		s0i32 = 1
@@ -3925,11 +3909,11 @@ lbl64:
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41676):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41644):], uint32(s1i32))
 	// get_local
 	s0i32 = l0
 	// set_local
-	l11 = s0i32
+	l8 = s0i32
 	// end_block
 lbl71:
 	// get_local
@@ -3939,9 +3923,9 @@ lbl71:
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
-	l8 = s0i32
+	l5 = s0i32
 	// const
-	s0i32 = 42108
+	s0i32 = 42076
 	// set_local
 	l3 = s0i32
 	// block
@@ -3958,7 +3942,7 @@ lbl79:
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+0):]))
 	// get_local
-	s1i32 = l8
+	s1i32 = l5
 	// binary: i32.eq
 	if s0i32 == s1i32 {
 		s0i32 = 1
@@ -4005,7 +3989,7 @@ lbl78:
 	// end_block
 lbl77:
 	// const
-	s0i32 = 42108
+	s0i32 = 42076
 	// set_local
 	l3 = s0i32
 	// loop
@@ -4115,7 +4099,7 @@ lbl76:
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// tee_local
-	l6 = s0i32
+	l11 = s0i32
 	// get_local
 	s1i32 = l2
 	// const
@@ -4125,11 +4109,11 @@ lbl76:
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// get_local
-	s0i32 = l8
+	s0i32 = l5
 	// const
 	s1i32 = -8
 	// get_local
-	s2i32 = l8
+	s2i32 = l5
 	// binary: i32.sub
 	s1i32 = s1i32 - s2i32
 	// const
@@ -4139,7 +4123,7 @@ lbl76:
 	// const
 	s2i32 = 0
 	// get_local
-	s3i32 = l8
+	s3i32 = l5
 	// const
 	s4i32 = 8
 	// binary: i32.add
@@ -4157,9 +4141,9 @@ lbl76:
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// tee_local
-	l8 = s0i32
+	l6 = s0i32
 	// get_local
-	s1i32 = l6
+	s1i32 = l11
 	// get_local
 	s2i32 = l2
 	// binary: i32.add
@@ -4174,7 +4158,7 @@ lbl76:
 	// get_local
 	s0i32 = l4
 	// get_local
-	s1i32 = l8
+	s1i32 = l6
 	// binary: i32.ne
 	if s0i32 != s1i32 {
 		s0i32 = 1
@@ -4190,13 +4174,13 @@ lbl76:
 	// get_local
 	s1i32 = l2
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41672):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41640):]))
 	// get_local
 	s2i32 = l5
 	// binary: i32.add
@@ -4204,7 +4188,7 @@ lbl76:
 	// tee_local
 	l3 = s1i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
 	// get_local
 	s0i32 = l2
 	// get_local
@@ -4223,9 +4207,9 @@ lbl82:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41680):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41648):]))
 	// get_local
-	s1i32 = l8
+	s1i32 = l6
 	// binary: i32.ne
 	if s0i32 != s1i32 {
 		s0i32 = 1
@@ -4241,13 +4225,13 @@ lbl82:
 	// get_local
 	s1i32 = l2
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41680):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41648):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41668):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41636):]))
 	// get_local
 	s2i32 = l5
 	// binary: i32.add
@@ -4255,7 +4239,7 @@ lbl82:
 	// tee_local
 	l3 = s1i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41668):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41636):], uint32(s1i32))
 	// get_local
 	s0i32 = l2
 	// get_local
@@ -4282,7 +4266,7 @@ lbl82:
 lbl83:
 	// block
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+4):]))
 	// tee_local
@@ -4328,7 +4312,7 @@ lbl83:
 		goto lbl86
 	}
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+8):]))
 	// tee_local
@@ -4340,13 +4324,13 @@ lbl83:
 	// binary: i32.shr_u
 	s1i32 = int32(uint32(s1i32) >> (uint32(s2i32) & 31))
 	// tee_local
-	l11 = s1i32
+	l8 = s1i32
 	// const
 	s2i32 = 3
 	// binary: i32.shl
 	s1i32 = s1i32 << (uint32(s2i32) & 31)
 	// const
-	s2i32 = 41700
+	s2i32 = 41668
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -4359,7 +4343,7 @@ lbl83:
 	}
 	// block
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+12):]))
 	// tee_local
@@ -4381,17 +4365,17 @@ lbl83:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41660):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41628):]))
 	// const
 	s2i32 = -2
 	// get_local
-	s3i32 = l11
+	s3i32 = l8
 	// binary: i32.rotl
 	s2i32 = int32(bits.RotateLeft32(uint32(s2i32), int(s3i32)))
 	// binary: i32.and
 	s1i32 = s1i32 & s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// br
 	goto lbl85
 	// end_block
@@ -4423,7 +4407,7 @@ lbl87:
 	// end_block
 lbl86:
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+24):]))
 	// set_local
@@ -4431,13 +4415,13 @@ lbl86:
 	// block
 	// block
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+12):]))
 	// tee_local
 	l0 = s0i32
 	// get_local
-	s1i32 = l8
+	s1i32 = l6
 	// binary: i32.eq
 	if s0i32 == s1i32 {
 		s0i32 = 1
@@ -4449,9 +4433,9 @@ lbl86:
 		goto lbl89
 	}
 	// get_local
-	s0i32 = l11
+	s0i32 = l8
 	// get_local
-	s1i32 = l8
+	s1i32 = l6
 	// load: i32.load
 	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+8):]))
 	// tee_local
@@ -4480,7 +4464,7 @@ lbl86:
 lbl89:
 	// block
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// const
 	s1i32 = 20
 	// binary: i32.add
@@ -4496,7 +4480,7 @@ lbl89:
 		goto lbl90
 	}
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// const
 	s1i32 = 16
 	// binary: i32.add
@@ -4524,7 +4508,7 @@ lbl91:
 	// get_local
 	s0i32 = l3
 	// set_local
-	l11 = s0i32
+	l8 = s0i32
 	// get_local
 	s0i32 = l4
 	// tee_local
@@ -4563,7 +4547,7 @@ lbl91:
 	}
 	// end
 	// get_local
-	s0i32 = l11
+	s0i32 = l8
 	// const
 	s1i32 = 0
 	// store: i32.store
@@ -4585,7 +4569,7 @@ lbl88:
 	// block
 	// block
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+28):]))
 	// tee_local
@@ -4595,7 +4579,7 @@ lbl88:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// tee_local
@@ -4603,7 +4587,7 @@ lbl88:
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+0):]))
 	// get_local
-	s1i32 = l8
+	s1i32 = l6
 	// binary: i32.ne
 	if s0i32 != s1i32 {
 		s0i32 = 1
@@ -4631,7 +4615,7 @@ lbl88:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41664):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+41632):]))
 	// const
 	s2i32 = -2
 	// get_local
@@ -4641,7 +4625,7 @@ lbl88:
 	// binary: i32.and
 	s1i32 = s1i32 & s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41632):], uint32(s1i32))
 	// br
 	goto lbl85
 	// end_block
@@ -4657,7 +4641,7 @@ lbl93:
 	// load: i32.load
 	s3i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s3i32+16):]))
 	// get_local
-	s4i32 = l8
+	s4i32 = l6
 	// binary: i32.eq
 	if s3i32 == s4i32 {
 		s3i32 = 1
@@ -4698,7 +4682,7 @@ lbl92:
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+24):], uint32(s1i32))
 	// block
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+16):]))
 	// tee_local
@@ -4728,7 +4712,7 @@ lbl92:
 	// end_block
 lbl94:
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+20):]))
 	// tee_local
@@ -4770,19 +4754,19 @@ lbl85:
 	// set_local
 	l5 = s0i32
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// get_local
 	s1i32 = l7
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
-	l8 = s0i32
+	l6 = s0i32
 	// end_block
 lbl84:
 	// get_local
-	s0i32 = l8
+	s0i32 = l6
 	// get_local
-	s1i32 = l8
+	s1i32 = l6
 	// load: i32.load
 	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+4):]))
 	// const
@@ -4839,7 +4823,7 @@ lbl84:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41700
+	s1i32 = 41668
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -4849,7 +4833,7 @@ lbl84:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41660):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41628):]))
 	// tee_local
 	l5 = s0i32
 	// const
@@ -4875,7 +4859,7 @@ lbl84:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// get_local
 	s0i32 = l3
 	// set_local
@@ -5070,7 +5054,7 @@ lbl98:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -5079,7 +5063,7 @@ lbl98:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41664):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41632):]))
 	// tee_local
 	l0 = s0i32
 	// const
@@ -5111,7 +5095,7 @@ lbl98:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41632):], uint32(s1i32))
 	// get_local
 	s0i32 = l2
 	// get_local
@@ -5305,14 +5289,16 @@ lbl75:
 	l11 = s0i32
 	// get_local
 	s1i32 = l6
-	// get_local
-	s2i32 = l3
-	// binary: i32.sub
-	s1i32 = s1i32 - s2i32
 	// const
 	s2i32 = -56
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
+	// tee_local
+	l8 = s1i32
+	// get_local
+	s2i32 = l3
+	// binary: i32.sub
+	s1i32 = s1i32 - s2i32
 	// tee_local
 	l3 = s1i32
 	// const
@@ -5322,15 +5308,15 @@ lbl75:
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// get_local
-	s0i32 = l8
-	// const
-	s1i32 = -52
+	s0i32 = l0
+	// get_local
+	s1i32 = l8
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// const
 	s1i32 = 56
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// get_local
 	s0i32 = l4
 	// get_local
@@ -5402,21 +5388,21 @@ lbl75:
 	// const
 	s1i32 = 0
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42148):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+42116):]))
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41688):], uint32(s1i32))
-	// const
-	s0i32 = 0
-	// get_local
-	s1i32 = l11
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41656):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l3
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
+	// const
+	s0i32 = 0
+	// get_local
+	s1i32 = l11
+	// store: i32.store
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
 	// get_local
 	s0i32 = l8
 	// const
@@ -5426,7 +5412,7 @@ lbl75:
 	// const
 	s1i32 = 0
 	// load: i64.load
-	s1i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+42116):]))
+	s1i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+42084):]))
 	// store: i64.store
 	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], uint64(s1i64))
 	// get_local
@@ -5434,7 +5420,7 @@ lbl75:
 	// const
 	s1i32 = 0
 	// load: i64.load
-	s1i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+42108):]))
+	s1i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+42076):]))
 	// store: i64.store
 	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+8):], uint64(s1i64))
 	// const
@@ -5446,25 +5432,25 @@ lbl75:
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42116):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42084):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l6
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42112):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42080):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42108):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42076):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// const
 	s1i32 = 0
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42120):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42088):], uint32(s1i32))
 	// get_local
 	s0i32 = l8
 	// const
@@ -5578,7 +5564,7 @@ lbl101:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41700
+	s1i32 = 41668
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -5588,7 +5574,7 @@ lbl101:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41660):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41628):]))
 	// tee_local
 	l0 = s0i32
 	// const
@@ -5614,7 +5600,7 @@ lbl101:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// get_local
 	s0i32 = l3
 	// set_local
@@ -5813,7 +5799,7 @@ lbl105:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -5822,7 +5808,7 @@ lbl105:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41664):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41632):]))
 	// tee_local
 	l0 = s0i32
 	// const
@@ -5854,7 +5840,7 @@ lbl105:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41632):], uint32(s1i32))
 	// get_local
 	s0i32 = l4
 	// const
@@ -6055,7 +6041,7 @@ lbl74:
 	// end_block
 lbl73:
 	// get_local
-	s0i32 = l6
+	s0i32 = l11
 	// const
 	s1i32 = 8
 	// binary: i32.add
@@ -6109,7 +6095,7 @@ lbl63:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41672):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41640):]))
 	// tee_local
 	l3 = s0i32
 	// get_local
@@ -6127,7 +6113,7 @@ lbl63:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41684):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41652):]))
 	// tee_local
 	l4 = s0i32
 	// get_local
@@ -6155,13 +6141,13 @@ lbl63:
 	// get_local
 	s1i32 = l3
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41672):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41640):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l5
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41684):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41652):], uint32(s1i32))
 	// get_local
 	s0i32 = l4
 	// get_local
@@ -6193,7 +6179,7 @@ lbl6:
 	// const
 	s1i32 = 48
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// br
 	goto lbl3
 	// end_block
@@ -6226,7 +6212,7 @@ lbl5:
 	// binary: i32.shl
 	s1i32 = s1i32 << (uint32(s2i32) & 31)
 	// const
-	s2i32 = 41964
+	s2i32 = 41932
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -6270,7 +6256,7 @@ lbl5:
 	// tee_local
 	l7 = s1i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41632):], uint32(s1i32))
 	// br
 	goto lbl108
 	// end_block
@@ -6427,13 +6413,9 @@ lbl108:
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// get_local
-	s0i32 = l3
+	s0i32 = l8
 	// get_local
-	s1i32 = l8
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// const
-	s1i32 = 4
+	s1i32 = l3
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// tee_local
@@ -6441,13 +6423,13 @@ lbl108:
 	// get_local
 	s1i32 = l3
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+0):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+4):]))
 	// const
 	s2i32 = 1
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// br
 	goto lbl112
 	// end_block
@@ -6516,7 +6498,7 @@ lbl113:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41700
+	s1i32 = 41668
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -6526,7 +6508,7 @@ lbl113:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41660):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41628):]))
 	// tee_local
 	l5 = s0i32
 	// const
@@ -6552,7 +6534,7 @@ lbl113:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// get_local
 	s0i32 = l3
 	// set_local
@@ -6747,7 +6729,7 @@ lbl117:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41964
+	s1i32 = 41932
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -6784,7 +6766,7 @@ lbl117:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41632):], uint32(s1i32))
 	// get_local
 	s0i32 = l0
 	// get_local
@@ -7017,7 +6999,7 @@ lbl4:
 	// binary: i32.shl
 	s1i32 = s1i32 << (uint32(s2i32) & 31)
 	// const
-	s2i32 = 41964
+	s2i32 = 41932
 	// binary: i32.add
 	s1i32 = s1i32 + s2i32
 	// tee_local
@@ -7059,7 +7041,7 @@ lbl4:
 	// binary: i32.and
 	s1i32 = s1i32 & s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41664):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41632):], uint32(s1i32))
 	// br
 	goto lbl121
 	// end_block
@@ -7216,13 +7198,9 @@ lbl121:
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// get_local
-	s0i32 = l3
+	s0i32 = l0
 	// get_local
-	s1i32 = l0
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// const
-	s1i32 = 4
+	s1i32 = l3
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// tee_local
@@ -7230,13 +7208,13 @@ lbl121:
 	// get_local
 	s1i32 = l3
 	// load: i32.load
-	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+0):]))
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+4):]))
 	// const
 	s2i32 = 1
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
 	// br
 	goto lbl125
 	// end_block
@@ -7303,7 +7281,7 @@ lbl126:
 	// binary: i32.shl
 	s0i32 = s0i32 << (uint32(s1i32) & 31)
 	// const
-	s1i32 = 41700
+	s1i32 = 41668
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
@@ -7311,7 +7289,7 @@ lbl126:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41680):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+41648):]))
 	// set_local
 	l3 = s0i32
 	// block
@@ -7341,7 +7319,7 @@ lbl126:
 	// binary: i32.or
 	s1i32 = s1i32 | s2i32
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41660):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41628):], uint32(s1i32))
 	// get_local
 	s0i32 = l2
 	// set_local
@@ -7389,13 +7367,13 @@ lbl127:
 	// get_local
 	s1i32 = l5
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41680):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41648):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// get_local
 	s1i32 = l4
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41668):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41636):], uint32(s1i32))
 	// end_block
 lbl125:
 	// get_local

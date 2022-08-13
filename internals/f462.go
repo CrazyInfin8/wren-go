@@ -272,7 +272,7 @@ func f462(ctx *Context, l0 int32, l1 int32, l2 int32, l3 int32) {
 	// get_local
 	s0i32 = l24
 	// call
-	s0i32 = f585(ctx, s0i32)
+	s0i32 = f583(ctx, s0i32)
 	// set_local
 	l25 = s0i32
 	// get_local

@@ -56,7 +56,7 @@ func f599(ctx *Context, l0 int32, l1 int32, l2 int32) int64 {
 	// const
 	s1i64 = 0
 	// call
-	f591(ctx, s0i32, s1i64)
+	f592(ctx, s0i32, s1i64)
 	// get_local
 	s0i32 = l3
 	// get_local

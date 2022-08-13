@@ -230,7 +230,7 @@ lbl1:
 	// get_local
 	s1f64 = l20
 	// call
-	s0f64 = f611(ctx, s0f64, s1f64)
+	s0f64 = f626(ctx, s0f64, s1f64)
 	// set_local
 	l21 = s0f64
 	// get_local

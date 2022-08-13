@@ -24,5 +24,5 @@ func f602(ctx *Context, l0 int32) {
 	// unary: i64.extend_u/i32
 	s1i64 = int64(uint32(s1i32))
 	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+43248):], uint64(s1i64))
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+43200):], uint64(s1i64))
 }

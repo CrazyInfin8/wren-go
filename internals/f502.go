@@ -660,7 +660,7 @@ lbl1:
 	// set_local
 	l33 = s0i32
 	// const
-	s0i32 = 39408
+	s0i32 = 39376
 	// set_local
 	l34 = s0i32
 	// const

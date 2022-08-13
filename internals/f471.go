@@ -116,7 +116,7 @@ func f471(ctx *Context, l0 int32, l1 int32, l2 int32, l3 int32, l4 int32) {
 	// get_local
 	s1i32 = l11
 	// call
-	s0i32 = f579(ctx, s0i32, s1i32)
+	s0i32 = f582(ctx, s0i32, s1i32)
 	// set_local
 	l12 = s0i32
 	// block
@@ -156,7 +156,7 @@ lbl1:
 	// get_local
 	s1i32 = l15
 	// call
-	s0i32 = f579(ctx, s0i32, s1i32)
+	s0i32 = f582(ctx, s0i32, s1i32)
 	// set_local
 	l16 = s0i32
 	// block

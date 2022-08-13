@@ -62,7 +62,7 @@ lbl1:
 	// const
 	s0i32 = 0
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42160):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+43164):]))
 	// br_if
 	if s0i32 != 0 {
 		goto lbl3
@@ -91,7 +91,7 @@ lbl1:
 	// const
 	s1i32 = 25
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// br
 	goto lbl2
 	// end_block
@@ -339,7 +339,7 @@ lbl8:
 	// const
 	s1i32 = 25
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// end_block
 lbl2:
 	// const

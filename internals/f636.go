@@ -94,7 +94,7 @@ func f636(ctx *Context, l0 int32, l1 int32, l2 int32) int32 {
 		s1i32 = s2i32
 	}
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// const
 	s0i32 = -1
 	// set_local

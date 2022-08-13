@@ -54,7 +54,7 @@ func f635(ctx *Context, l0 int32, l1 int32, l2 int32) int32 {
 	// const
 	s1i32 = 28
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// br
 	goto lbl0
 	// end_block
@@ -91,7 +91,7 @@ lbl1:
 	// get_local
 	s1i32 = l2
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42156):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
 	// const
 	s0i32 = -1
 	// set_local

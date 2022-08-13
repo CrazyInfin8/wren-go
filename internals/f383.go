@@ -222,7 +222,7 @@ func f383(ctx *Context, l0 int32, l1 int32, l2 int32) int32 {
 	// get_local
 	s2i32 = l21
 	// call
-	s0i32 = f580(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f581(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l5
 	// load: i32.load

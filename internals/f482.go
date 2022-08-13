@@ -382,7 +382,7 @@ func f482(ctx *Context, l0 int32, l1 int32, l2 int32) {
 	// get_local
 	s2i32 = l14
 	// call
-	s0i32 = f583(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f580(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l5
 	// load: i32.load
@@ -1114,7 +1114,7 @@ lbl1:
 	// get_local
 	s2i32 = l109
 	// call
-	s0i32 = f583(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f580(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l5
 	// load: i32.load

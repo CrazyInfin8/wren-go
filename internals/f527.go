@@ -160,7 +160,7 @@ func f527(ctx *Context) int32 {
 	// get_local
 	s1i32 = l12
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41656):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+41624):], uint32(s1i32))
 	// const
 	s0i32 = 0
 	// set_local

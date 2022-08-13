@@ -18,15 +18,12 @@ import (
 	"strings"
 )
 
-// TODO: Wagu doesn't like wasms from wasi-sdk-16, using 14 for now
 
 // These are used to build the go sources:
 //     `go env GOPATH`/bin/cmd ir wren.wasm -o wren.ir
 //     `go env GOPATH`/bin/cmd gen wren.ir -c -e=false -C -p internals -u -d internals
 
-// TODO: reference wasi_snapshot_preview1 from wazero into wren-go internals.
-
-// TODO: fetching and extracting wasi-sdk from this script is broken. executable files are empty for some reason. For now it is best tp manually download wasi-sdk-14 and store it in ./wasi-sdk.
+// TODO: Wagu doesn't like wasms from wasi-sdk-16, should use 15 for now. Also fetching and extracting wasi-sdk from this script is broken at the moment. Some executable files are do not get copied for some unknown reason. For now it is best to manually download wasi-sdk-15 and store it in ./wasi-sdk.
 
 func main() {
 	// Fetch wren

@@ -54,7 +54,7 @@ func f18(ctx *Context) int64 {
 	// const
 	s0i32 = 0
 	// load: i64.load
-	s0i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s0i32+41648):]))
+	s0i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s0i32+41616):]))
 	// set_local
 	l1 = s0i64
 	// get_local

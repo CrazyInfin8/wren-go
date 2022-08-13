@@ -76,11 +76,13 @@ func f625(ctx *Context, l0 float64, l1 int32) float64 {
 	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], math.Float64bits(s1f64))
 	// block
 	// get_local
-	s0i32 = l4
+	s0i64 = l2
 	// const
-	s1i32 = 1024
-	// binary: i32.ne
-	if s0i32 != s1i32 {
+	s1i64 = 4503599627370495
+	// binary: i64.and
+	s0i64 = s0i64 & s1i64
+	// unary: i64.eqz
+	if s0i64 == 0 {
 		s0i32 = 1
 	} else {
 		s0i32 = 0
@@ -90,15 +92,11 @@ func f625(ctx *Context, l0 float64, l1 int32) float64 {
 		goto lbl2
 	}
 	// get_local
-	s0i64 = l2
+	s0i32 = l4
 	// const
-	s1i64 = 4503599627370495
-	// binary: i64.and
-	s0i64 = s0i64 & s1i64
-	// const
-	s1i64 = 0
-	// binary: i64.ne
-	if s0i64 != s1i64 {
+	s1i32 = 1024
+	// binary: i32.eq
+	if s0i32 == s1i32 {
 		s0i32 = 1
 	} else {
 		s0i32 = 0
