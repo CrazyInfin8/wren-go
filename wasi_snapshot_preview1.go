@@ -24,6 +24,7 @@ const (
 
 // StdOut is where output from any context is printed to.
 var StdOut io.Writer
+
 // StdErr is where error messages from any context is printed to. This may
 // contain debug information from the incorrect use of wren.
 var StdErr io.Writer
