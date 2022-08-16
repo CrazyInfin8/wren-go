@@ -5,12 +5,11 @@
 
 wren-go is a port of the [Wren] scripting language to pure Go using WebAssembly and [wagu]. Thanks to [wagu], wren-go needs almost no dependencies and does not use CGo, making it easier to target web and tinygo targets.
 
-Wren-go also uses a modified version of wren similar to [wren-bindings-for-go] meant for embedding in non C projects. This means theres no need to [preallocate foreign functions](https://github.com/CrazyInfin8/WrenGo/blob/main/bindings.go) and the `VM.Exit` function is meant to stop the wren VM in the middle of execution.
+[wren]:https://wren.io/
+[wagu]:https://github.com/chrsan/wagu
+[WrenGo]:https://github.com/CrazyInfin8/WrenGo
 
-[wren]:[https://wren.io/]
-[wagu]:[https://github.com/chrsan/wagu]
-[WrenGo]:[https://github.com/CrazyInfin8/WrenGo]
-[wren-bindings-for-go]:[https://github.com/CrazyInfin8/wren-bindings-for-go]
+Wren-go also uses a modified version of wren similar to [wren-bindings-for-go](https://github.com/CrazyInfin8/wren-bindings-for-go) meant for embedding in non C projects. This means theres no need to [preallocate foreign functions](https://github.com/CrazyInfin8/WrenGo/blob/main/bindings.go) and the `VM.Exit` function is meant to stop the wren VM in the middle of execution.
 
 ## Installation
 
@@ -45,7 +44,7 @@ this runs `build-wren.go` which:
 
 1. first fetches wren (requires git)
 2. generates the wren amalgamation file
-3. downloads [WASI-libc](https://github.com/WebAssembly/wasi-libc) (it has been buggy to download and run wasi-libc in one go so you may need to run this script twice)
+3. downloads [WASI-libc](https://github.com/WebAssembly/wasi-libc) (it has been buggy to download and run wasi-libc in one go using this script so you may need to run this script twice)
 4. compiles the wren amalgamation with `src/shim.c` to a webassembly binary using wasi-libc
 5. installs wagu
 6. generates the IR for wagu
