@@ -1,7 +1,5 @@
 #define IMPORT(mod, name) __attribute__((import_module(#mod), import_name(#name)))
 #define EXPORT(name) __attribute__((export_name(#name)))
-// #define WREN_API WASM_SYMBOL_EXPORTED 
-#define DEBUG
 
 #include <wren.h>
 WrenVM* vm;
@@ -56,28 +54,60 @@ void IMPORT(wren, dispatchFinalizerFn) dispatchFinalizerFn(WrenVM *vm, void *dat
 
 void IMPORT(wren, bindForeignClassFn) bindForeignClassFn(WrenVM* vm, const char* module, const char* className, void** allocate, void** finalize);
 
+// See: https://github.com/wren-lang/wren/issues/811
+static void invalidConstructor(WrenVM *vm, void *userData) {
+    const char err[] = "Foreign class does not have a constructor.";
+    wrenEnsureSlots(vm, 1);
+    wrenSetSlotBytes(vm, 0, err, sizeof(err));
+    wrenAbortFiber(vm, 0);
+}
+
 static WrenForeignClassMethods _bindForeignClassFn(WrenVM* vm, const char* module, const char* className) {
-    WrenForeignClassMethods result;
+    WrenForeignClassMethods result = { NULL };
     bindForeignClassFn(vm, module, className, &(result.allocateUserData), &(result.finalizeUserData));
     if (result.allocateUserData) {
         result.allocate = dispatchForeignMethodFn;
         if (result.finalizeUserData) {
             result.finalize = dispatchFinalizerFn;
         }
+    } else {
+        result.allocate = invalidConstructor;
     }
     return result;
 }
+
+typedef struct HeapSettings {
+    size_t initSize, minSize;
+    int growthPercent;
+} HeapSettings;
+
+bool IMPORT(wren, heapSettings) heapSettings(HeapSettings* settings);
+
+const int versionTuple[3] = {WREN_VERSION_MAJOR, WREN_VERSION_MINOR, WREN_VERSION_PATCH};
+#define __VERSION_STRING(major, minor, patch) #major"."#minor"."#patch
+#define _VERSION_STRING(major, minor, patch) __VERSION_STRING(major, minor, patch)
+#define VERSION_STRING _VERSION_STRING(WREN_VERSION_MAJOR, WREN_VERSION_MINOR, WREN_VERSION_PATCH)
+const char versionString[sizeof(VERSION_STRING)] = VERSION_STRING;
 
 int main()
 {
     WrenConfiguration config;
     wrenInitConfiguration(&config);
+    HeapSettings settings;
     config.resolveModuleFn = resolveModuleFn;
     config.loadModuleFn = _loadModuleFn;
     config.bindForeignMethodFn = _bindForeignMethodFn;
     config.bindForeignClassFn = _bindForeignClassFn;
     config.writeFn = writeFn;
     config.errorFn = errorFn;
+    settings.initSize = config.initialHeapSize;
+    settings.minSize = config.minHeapSize;
+    settings.growthPercent = config.heapGrowthPercent;
+    if (heapSettings(&settings)) {
+        config.initialHeapSize = settings.initSize;
+        config.minHeapSize = settings.minSize;
+        config.heapGrowthPercent = settings.growthPercent;
+    }
     vm = wrenNewVM(&config);
     
     return 0;

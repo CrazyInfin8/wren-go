@@ -8,9 +8,9 @@ func f645(ctx *Context, l0 int32) int32 {
 	// get_local
 	s0i32 = l0
 	// call
-	s0i32 = f410(ctx, s0i32)
+	s0i32 = f413(ctx, s0i32)
 	// call
-	f553(ctx)
+	f554(ctx)
 	// return
 	return s0i32
 }

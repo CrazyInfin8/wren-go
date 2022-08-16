@@ -10,7 +10,7 @@ import (
 	"github.com/crazyinfin8/wren-go/internals"
 )
 
-type Config interface {
+type Config struct {
 	// ResolveModuleFn allows the host to canonicalize the imported name beofre
 	// it is passed to LoadModuleFn.
 	//
@@ -18,21 +18,20 @@ type Config interface {
 	// import. It should return the new name to be passed to LoadModuleFn as
 	// well as if the import is ok. If an import cannot be resolved, this
 	// function should return false.
-	ResolveModuleFn(vm VM, importer, name string) (newName string, ok bool)
+	ResolveModuleFn func(vm VM, importer, name string) (newName string, ok bool)
 
 	// LoadModuleFn load a modules source code. It takes the name of the module
 	// to import and returns the wren source code as well as whether the module
 	// was successfully loaded.
-	LoadModuleFn(vm VM, name string) (string, bool)
+	LoadModuleFn func(vm VM, name string) (src string, ok bool)
 
 	// BindForeignMethodFn binds a foreign function to a class method in wren.
 	//
 	// It is passed the module, class name, and call signature of the function
 	// as well as whether the function is static.
 	//
-	// It should return an int32 key which will be passed to DispatchForeignFn
-	// when this foreign method is to be called. Returning 0 signifies an error
-	// to wren when binding this function.
+	// Returning nil signifies that such function does not exist, raising an
+	// error in wren
 	//
 	// The call signature's format varies between the type of function it is but
 	// usually begins with the function name and ends with the amount of
@@ -51,46 +50,50 @@ type Config interface {
 	//     - Operators begin with the operation followed by one parameter
 	//       surrounded by parenthesis: "+(_)", ">=(_)", "<<(_)"
 	//
-	BindForeignMethodFn(vm VM, module, className string, isStatic bool,
-		signature string) int32
+	BindForeignMethodFn func(vm VM, module, class,
+		signature string, static bool) func(VM)
 
 	// BindForeignClassMethodFn binds the allocator and finalizer of a class.
 	//
-	// It takes the name of the class and it's module and should return an int32
-	// each for the allocator and finalizer. Setting the allocator to 0
-	// signifies an error to wren but finalizer is optional and can be set to 0
-	// to indicate no finalizer function.
-	//
-	// The value of allocator will be passed to DispatchForeignFn when the
-	// constructor of the foreign class is called. It should make a call to
-	// SetSlotNewForeign once. The value of finalizer is passed to
-	// DispatchFinalizerFn as well as the value passed to SetSlotNewForeign when
-	// the foreign object is garbage collected by wren.
-	//
-	// The allocator is called when the construtor of the foreign class is
-	// called and should call SetSlotNewForeign once. The finalizer is called
-	// when the foreign object is garbage collected from wren.
-	BindForeignClassMethodFn(vm VM, module, className string) (allocator int32,
-		finalizer int32)
+	// It takes the name of the class and it's module and should return two
+	// functions: one called during the creation of a foreign object (when a
+	// constructor is called) and one called when the foreign object is garbage
+	// collected. Setting the allocator to nil signifies an error to wren but
+	// finalizer is optional and can be set to nil to indicate no finalizer
+	// function.
+	BindForeignClassMethodFn func(vm VM, module, class string) (allocator func(VM),
+		finalizer func(VM, interface{}))
 
 	// WriteFn is called when "System.write", "System.print", and related
 	// functions have been called in wren.
-	WriteFn(vm VM, message string)
+	WriteFn func(vm VM, message string)
 
 	// ErrorFn is called whenever acompilation or runtime error has occurred in
 	// wren. The error value should always be of type WrenError.
-	ErrorFn(vm VM, err error)
+	ErrorFn func(vm VM, err error)
 
-	// DispatchForeignFn is called by wren when a foreign function is
-	// dispatched. It takes the value returned by BindForeignMethodFn or the
-	// allocator of BindForeignClassMethodFn.
-	DispatchForeignFn(vm VM, fnID int32)
+	// InitialHeapSize is the number of bytes wren will allocate before
+	// triggering the first garbage collection.
+	//
+	// Set this to zero to use wren's default value
+	InitialHeapSize uint
 
-	// DispatchFinalizerFn is called by wren when it has garbage collected a
-	// foreign object. The value of fnID will be the value of finalizer that was
-	// returned from BindForeignClassMethodFn. The value of data is the value
-	// passed by SetSlotNewForeign.
-	DispatchFinalizerFn(vm VM, data int32, fnID int32)
+	// MinHeapSize is the minimum size threshold after a garbage collection has
+	// occured. This ensures that the heap does not get to small.
+	//
+	// Set this to zero to use wren's default value
+	MinHeapSize uint
+
+	// HeapGrowthPercent determines the amount of additional memory the heap
+	// will grow to after garbage collection. This is specified as a percent of
+	// the current heap size with a value like 50 increasing the heap size by
+	// 50%
+	//
+	// The smaller this value is means the less memory wasted but the garbage
+	// collector may be triggered more often
+	//
+	// Set this to zero to use wren's default value
+	HeapGrowthPercent int
 }
 
 // WrenError represents a compile or runtime error from wren. Depending on the
@@ -106,7 +109,7 @@ func (err WrenError) Error() string {
 	switch err.Type {
 	case ErrorCompile, ErrorStackTrace:
 		// Don't use fmt if we don't need to.
-		var buf strings.Builder
+		buf := strings.Builder{}
 		// Based on: fprintf(stderr, "[%s line %d] %s\n", module, line, message)
 		buf.WriteByte('[')
 		buf.WriteString(err.Module)
@@ -135,9 +138,50 @@ func (vm VM) VersionNumber() int {
 	return int(vm.ctx().WrenGetVersionNumber())
 }
 
+func (vm VM) VersionTuple() [3]int {
+	ctx := vm.ctx()
+	ptr := ctx.G1
+	return [3]int{
+		int(readInt32(ctx, ptr)),
+		int(readInt32(ctx, ptr+4)),
+		int(readInt32(ctx, ptr+8)),
+	}
+}
+
+func (vm VM) VersionString() string {
+	ctx := vm.ctx()
+	return gostring(ctx, ctx.G2)
+}
+
+// Free disposes all data used by the VM. This isn't always necessary and won't
+// immediately free it's data because the VM's memory is still managed by Go and
+// must be garbage collected by Go. However, this function garbage collects any
+// remaining foreign objects existing in the VM to ensure their finalizers are
+// called.
+//
+// This VM should no longer be used after calling this function.
+func (vm VM) Free() {
+	vm.ctx().WrenFreeVM(vm.ptr())
+}
+
 // CollectGarbage runs the garbage collector for wren.
 func (vm VM) CollectGarbage() {
-	vm.ctx().WrenCollectGarbage(vm.env.vmPtr())
+	vm.ctx().WrenCollectGarbage(vm.ptr())
+}
+
+// Exit attempts to interrupt wren while it is running and exit. The VM has not
+// been tested to verify that it's state is usable afterwards so it is
+// recommended to free it, though your mileage may vary.
+func (vm VM) Exit() {
+	vm.ctx().WrenEarlyExit(vm.ptr())
+}
+
+// Allocated returns the amount of bytes allocated by the wren VM. This does not
+// include foreign objects or functions as those are still handled by Go and it
+// doesn't reflect the entire amount of memory needed to run this instance of VM
+// but it is useful to compare against the original version of wren.
+func (vm VM) Allocated() int {
+	return int(vm.ctx().WrenGetAllocated(vm.ptr()))
 }
 
 // Interpret runs the source code in a new fiber in the resolved module.
@@ -199,12 +243,8 @@ func (vm VM) NewCallHandle(signature string) Handle {
 //
 // Note: that wren is not reentrant. You should not call this function from a
 // foreign method or while the VM is currently running.
-func (vm VM) CallHandle(handle Handle) InterpretResult {
-	ctx := vm.ctx()
-	if ctx != handle.vm.ctx() {
-		panic("handle's context does not match VM")
-	}
-	return InterpretResult(ctx.WrenCall(vm.ptr(), handle.ptr))
+func (vm VM) Call(handle Handle) InterpretResult {
+	return handle.Call()
 }
 
 // ReleaseHandle releases and frees up this handle. Handles prevent values from
@@ -232,19 +272,19 @@ func (vm VM) EnsureSlots(numSlots int) {
 	vm.ctx().WrenEnsureSlots(vm.ptr(), int32(numSlots))
 }
 
-// GetSlotType gets the value type located in the slot provided.
-func (vm VM) GetSlotType(slot int) Type {
+// SlotType gets the value type located in the slot provided.
+func (vm VM) SlotType(slot int) Type {
 	return Type(vm.ctx().WrenGetSlotType(vm.ptr(), int32(slot)))
 }
 
-// GetSlotBool retreives a bool in the slot provided.
-func (vm VM) GetSlotBool(slot int) bool {
+// GetBool retreives a bool in the slot provided.
+func (vm VM) GetBool(slot int) bool {
 	return vm.ctx().WrenGetSlotBool(vm.ptr(), int32(slot)) != 0
 }
 
-// GetSlotBytes retrieves string data from wren and writes it into writer. Error
+// GetBytes retrieves string data from wren and writes it into writer. Error
 // values from writer are returned.
-func (vm VM) GetSlotBytes(slot int, writer io.Writer) error {
+func (vm VM) GetBytes(slot int, writer io.Writer) error {
 	ctx := vm.ctx()
 
 	sizePtr := ctx.Malloc(4)
@@ -254,7 +294,7 @@ func (vm VM) GetSlotBytes(slot int, writer io.Writer) error {
 	endPtr := dataPtr + readInt32(ctx, sizePtr)
 
 	for dataPtr < endPtr {
-		n, err := writer.Write(ctx.Mem[dataPtr : endPtr-dataPtr])
+		n, err := writer.Write(ctx.Mem[dataPtr:endPtr])
 		if err != nil {
 			return err
 		}
@@ -263,38 +303,39 @@ func (vm VM) GetSlotBytes(slot int, writer io.Writer) error {
 	return nil
 }
 
-// GetSlotDouble returns a number in the slot provided.
-func (vm VM) GetSlotDouble(slot int) float64 {
+// GetNum returns a number in the slot provided.
+func (vm VM) GetNum(slot int) float64 {
 	return vm.ctx().WrenGetSlotDouble(vm.ptr(), int32(slot))
 }
 
-// GetSlotForeign returns and ID for the current foreign object. It's value
-// reflects what was passed from SetSlotNewForeign.
-func (vm VM) GetSlotForeign(slot int) int32 {
-	return vm.ctx().WrenGetSlotForeign(vm.ptr(), int32(slot))
+// GetForeign returns the foreign object referenced in the current slot. It's
+// value reflects what was passed from SetNewForeign.
+func (vm VM) GetForeign(slot int) any {
+	ptr := vm.ctx().WrenGetSlotForeign(vm.ptr(), int32(slot))
+	return vm.env.objs[ptr]
 }
 
-// GetSlotString copies a string from the slot provided and returns it.
-func (vm VM) GetSlotString(slot int) string {
+// GetString copies a string from the slot provided and returns it.
+func (vm VM) GetString(slot int) string {
 	buf := strings.Builder{}
-	vm.GetSlotBytes(slot, &buf)
+	vm.GetBytes(slot, &buf)
 
 	return buf.String()
 }
 
 // GetSlotHandle creates a new handle from the value in the slot provided.
 // Handles prevent a value from being garbage collected.
-func (vm VM) GetSlotHandle(slot int) Handle {
+func (vm VM) GetHandle(slot int) Handle {
 	return Handle{vm, vm.ctx().WrenGetSlotHandle(vm.ptr(), int32(slot))}
 }
 
 // SetSlotBool sets the provided slot to a boolean value.
-func (vm VM) SetSlotBool(slot int, value bool) {
+func (vm VM) SetBool(slot int, value bool) {
 	vm.ctx().WrenSetSlotBool(vm.ptr(), int32(slot), boolToInt(value))
 }
 
 // SetSlotBytes sets the provided slot to a string value from the given bytes.
-func (vm VM) SetSlotBytes(slot int, data []byte) {
+func (vm VM) SetBytes(slot int, data []byte) {
 	ctx := vm.ctx()
 
 	cbuf := cbytes(ctx, data)
@@ -303,37 +344,35 @@ func (vm VM) SetSlotBytes(slot int, data []byte) {
 	ctx.WrenSetSlotBytes(vm.ptr(), int32(slot), cbuf, int32(len(data)))
 }
 
-// SetSlotDouble sets the provided slot to a number value from the given
+// SetNum sets the provided slot to a number value from the given
 // float64.
-func (vm VM) SetSlotDouble(slot int, value float64) {
+func (vm VM) SetNum(slot int, value float64) {
 	vm.ctx().WrenSetSlotDouble(vm.ptr(), int32(slot), value)
 }
 
-// SetSlotnewForeign sets the slot to the value of a new foreign object. The
-// objects type should be of the class type found in classSlot. The ID will be
-// the same id provided from GetSlotForeign and DispatchFinalizerFn.
-func (vm VM) SetSlotNewForeign(slot, classSlot int, ID int32) {
-	ctx := vm.ctx()
-	ctx.WrenSetSlotNewForeign(vm.ptr(), int32(slot), int32(classSlot), ID)
+// SetNewForeign creates a new foreign object in wren.
+func (vm VM) SetNewForeign(slot, classSlot int, obj interface{}) {
+	ID := vm.ctx().WrenSetSlotNewForeign(vm.ptr(), int32(slot), int32(classSlot), 1)
+	vm.env.objs[ID] = obj
 }
 
-// SetSlotNewList creates an empty list and sets it in the slot provided.
-func (vm VM) SetSlotNewList(slot int) {
+// SetNewList creates an empty list and sets it in the slot provided.
+func (vm VM) SetNewList(slot int) {
 	vm.ctx().WrenSetSlotNewList(vm.ptr(), int32(slot))
 }
 
-// SetSlotNewMap creates an empty map and sets it in the slot provided.
-func (vm VM) SetSlotNewMap(slot int) {
+// SetNewMap creates an empty map and sets it in the slot provided.
+func (vm VM) SetNewMap(slot int) {
 	vm.ctx().WrenSetSlotNewMap(vm.ptr(), int32(slot))
 }
 
-// SetSlotNull sets the provided slot to a null value.
-func (vm VM) SetSlotNull(slot int) {
+// SetNull sets the provided slot to a null value.
+func (vm VM) SetNull(slot int) {
 	vm.ctx().WrenSetSlotNull(vm.ptr(), int32(slot))
 }
 
-// SetSlotString sets the provided slot to the given string value.
-func (vm VM) SetSlotString(slot int, value string) {
+// SetString sets the provided slot to the given string value.
+func (vm VM) SetString(slot int, value string) {
 	ctx := vm.ctx()
 
 	cstr := cstring(ctx, value)
@@ -342,8 +381,8 @@ func (vm VM) SetSlotString(slot int, value string) {
 	ctx.WrenSetSlotBytes(vm.ptr(), int32(slot), cstr, int32(len(value)))
 }
 
-// SetSlotHandle sets the provided slot to the value held by the given handle.
-func (vm VM) SetSlotHandle(slot int, handle Handle) {
+// SetHandle sets the provided slot to the value held by the given handle.
+func (vm VM) SetHandle(slot int, handle Handle) {
 	ctx := vm.ctx()
 	if ctx != handle.vm.ctx() {
 		panic("handle's context does not match VM")
@@ -351,8 +390,8 @@ func (vm VM) SetSlotHandle(slot int, handle Handle) {
 	ctx.WrenSetSlotHandle(vm.ptr(), int32(slot), handle.ptr)
 }
 
-// GetListCount returns the list of the list in the given slot.
-func (vm VM) GetListCount(slot int) int {
+// ListCount returns the list of the list in the given slot.
+func (vm VM) ListCount(slot int) int {
 	return int(vm.ctx().WrenGetListCount(vm.ptr(), int32(slot)))
 }
 
@@ -378,14 +417,14 @@ func (vm VM) InsertInList(listSlot, index, elementSlot int) {
 		int32(elementSlot))
 }
 
-// GetMapCount returns the amount of elements in the map at the specified slot.
-func (vm VM) GetMapCount(slot int) int {
+// MapCount returns the amount of elements in the map at the specified slot.
+func (vm VM) MapCount(slot int) int {
 	return int(vm.ctx().WrenGetMapCount(vm.ptr(), int32(slot)))
 }
 
-// GetMapContainsKey returns true if the value in keySlot is a valid key in this
+// MapHasKey returns true if the value in keySlot is a valid key in this
 // map
-func (vm VM) GetMapContainsKey(mapSlot, keySlot int) bool {
+func (vm VM) MapHasKey(mapSlot, keySlot int) bool {
 	return vm.ctx().WrenGetMapContainsKey(vm.ptr(), int32(mapSlot),
 		int32(keySlot)) != 0
 }
@@ -459,18 +498,18 @@ func (vm VM) AbortFiber(slot int) {
 // wren.
 func (vm VM) AbortError(err error) {
 	vm.EnsureSlots(1)
-	vm.SetSlotString(0, err.Error())
+	vm.SetString(0, err.Error())
 	vm.AbortFiber(0)
 }
 
-// GetUserData gets the userdata of this VM.
-func (vm VM) GetUserData() int32 {
-	return vm.ctx().WrenGetUserData(vm.ptr())
+// UserData gets the user data of this VM.
+func (vm VM) UserData() any {
+	return vm.env.UserData
 }
 
-// SetUserData sets the userdata of this VM
-func (vm VM) SetUserData(data int32) {
-	vm.ctx().WrenSetUserData(vm.ptr(), data)
+// SetUserdata sets the user data for this VM
+func (vm VM) SetUserdata(data interface{}) {
+	vm.env.UserData = data
 }
 
 // Handle is used to keep a reference to a value in the VM as to prevent it from
@@ -544,8 +583,11 @@ const (
 )
 
 // New creates and initializes a new VM.
-func New(cfg Config) VM {
+func NewVM(cfg Config) VM {
 	e := new(env)
+	e.objs = make(map[int32]interface{})
+	e.fns = make(map[int32]func(VM))
+	e.finalizers = make(map[int32]func(VM, interface{}))
 	e.cfg = cfg
 	e.ctx = internals.NewContext(e)
 	e.ctx.Start()

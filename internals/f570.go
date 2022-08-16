@@ -1,8 +1,12 @@
 package internals
 
-func f570(ctx *Context, l0 int32, l1 int32) int32 {
-	var l2 int32
-	_ = l2
+import (
+	"encoding/binary"
+)
+
+func f570(ctx *Context, l0 int32) int32 {
+	var l1 int32
+	_ = l1
 	var s0i32 int32
 	_ = s0i32
 	var s1i32 int32
@@ -11,36 +15,39 @@ func f570(ctx *Context, l0 int32, l1 int32) int32 {
 	_ = s2i32
 	var s3i32 int32
 	_ = s3i32
-	var s4i32 int32
-	_ = s4i32
-	var s5i32 int32
-	_ = s5i32
-	var s6i32 int32
-	_ = s6i32
-	// get_local
-	s0i32 = l0
-	// call
-	s0i32 = f583(ctx, s0i32)
+	// block
+	// const
+	s0i32 = 0
+	// load: i32.load
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+43144):]))
+	// tee_local
+	l1 = s0i32
+	// br_if
+	if s0i32 != 0 {
+		goto lbl0
+	}
+	// const
+	s0i32 = 43120
 	// set_local
-	l2 = s0i32
+	l1 = s0i32
 	// const
-	s0i32 = -1
+	s0i32 = 0
 	// const
-	s1i32 = 0
-	// get_local
-	s2i32 = l2
-	// get_local
-	s3i32 = l0
+	s1i32 = 43120
+	// store: i32.store
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+43144):], uint32(s1i32))
+	// end_block
+lbl0:
 	// const
-	s4i32 = 1
+	s0i32 = 0
 	// get_local
-	s5i32 = l2
+	s1i32 = l0
 	// get_local
-	s6i32 = l1
-	// call
-	s3i32 = f568(ctx, s3i32, s4i32, s5i32, s6i32)
-	// binary: i32.ne
-	if s2i32 != s3i32 {
+	s2i32 = l0
+	// const
+	s3i32 = 76
+	// binary: i32.gt_u
+	if uint32(s2i32) > uint32(s3i32) {
 		s2i32 = 1
 	} else {
 		s2i32 = 0
@@ -51,6 +58,26 @@ func f570(ctx *Context, l0 int32, l1 int32) int32 {
 	} else {
 		s0i32 = s1i32
 	}
+	// const
+	s1i32 = 1
+	// binary: i32.shl
+	s0i32 = s0i32 << (uint32(s1i32) & 31)
+	// const
+	s1i32 = 22752
+	// binary: i32.add
+	s0i32 = s0i32 + s1i32
+	// load: i32.load16_u
+	s0i32 = int32(binary.LittleEndian.Uint16(ctx.Mem[int(s0i32+0):]))
+	// const
+	s1i32 = 21195
+	// binary: i32.add
+	s0i32 = s0i32 + s1i32
+	// get_local
+	s1i32 = l1
+	// load: i32.load
+	s1i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s1i32+20):]))
+	// call
+	s0i32 = f589(ctx, s0i32, s1i32)
 	// return
 	return s0i32
 }

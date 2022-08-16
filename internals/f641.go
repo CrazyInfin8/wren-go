@@ -1,14 +1,14 @@
 package internals
 
-func f641(ctx *Context) int32 {
+func f641(ctx *Context, l0 int32) {
 	var s0i32 int32
 	_ = s0i32
 	// call
 	f15(ctx)
+	// get_local
+	s0i32 = l0
 	// call
-	s0i32 = f407(ctx)
+	f537(ctx, s0i32)
 	// call
-	f553(ctx)
-	// return
-	return s0i32
+	f554(ctx)
 }

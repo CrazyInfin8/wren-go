@@ -65,7 +65,7 @@ func f321(ctx *Context, l0 float64) int64 {
 	// get_local
 	s0f64 = l4
 	// call
-	s0i64 = f432(ctx, s0f64)
+	s0i64 = f434(ctx, s0f64)
 	// set_local
 	l5 = s0i64
 	// const

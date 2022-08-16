@@ -155,7 +155,7 @@ func f289(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s1f64 = l13
 	// call
-	s0f64 = f540(ctx, s0f64, s1f64)
+	s0f64 = f542(ctx, s0f64, s1f64)
 	// set_local
 	l14 = s0f64
 	// get_local

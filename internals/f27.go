@@ -124,7 +124,7 @@ func f27(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s2i32 = l11
 	// call
-	f482(ctx, s0i32, s1i32, s2i32)
+	f484(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l4
 	// load: i32.load
@@ -160,7 +160,7 @@ func f27(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s2i32 = l16
 	// call
-	s0i32 = f483(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f485(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l17 = s0i32
 	// const

@@ -12,7 +12,7 @@ func f17(ctx *Context) {
 	// const
 	s1i64 = 0
 	// const
-	s2i32 = 41616
+	s2i32 = 41568
 	// call
-	s0i32 = f544(ctx, s0i32, s1i64, s2i32)
+	s0i32 = f546(ctx, s0i32, s1i64, s2i32)
 }

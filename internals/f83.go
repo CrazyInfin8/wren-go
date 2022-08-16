@@ -232,7 +232,7 @@ lbl1:
 	// get_local
 	s2i32 = l22
 	// call
-	s0i32 = f492(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f494(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l23 = s0i32
 	// get_local

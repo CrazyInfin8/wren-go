@@ -1,6 +1,6 @@
 package internals
 
-func f679(ctx *Context, l0 int32, l1 int32) int32 {
+func f679(ctx *Context, l0 int32, l1 int32) {
 	var s0i32 int32
 	_ = s0i32
 	var s1i32 int32
@@ -12,9 +12,7 @@ func f679(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s1i32 = l1
 	// call
-	s0i32 = f464(ctx, s0i32, s1i32)
+	f467(ctx, s0i32, s1i32)
 	// call
-	f553(ctx)
-	// return
-	return s0i32
+	f554(ctx)
 }

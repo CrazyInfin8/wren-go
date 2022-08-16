@@ -6,7 +6,7 @@ func f551(ctx *Context, l0 int32) {
 	// get_local
 	s0i32 = l0
 	// call
-	f550(ctx, s0i32)
+	f14(ctx, s0i32)
 	// unreachable
 	panic("unreachable executed")
 }

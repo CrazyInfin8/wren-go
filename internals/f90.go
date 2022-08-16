@@ -429,7 +429,7 @@ func f90(ctx *Context, l0 int32, l1 int32, l2 int32, l3 int32, l4 int32) int32 {
 	// get_local
 	s2i32 = l12
 	// call
-	s0i32 = f584(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f585(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l13 = s0i32
 	// block

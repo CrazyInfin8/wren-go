@@ -11,15 +11,13 @@ type Context struct {
 	G0  int32
 	G1  int32
 	G2  int32
-	G3  int32
 }
 
 func NewContext(f ImportedFuncs) *Context {
 	c := &Context{Mem: newMemory(), f: f}
-	c.G0 = 109792
-	c.G1 = 22844
-	c.G2 = 39368
-	c.G3 = 21124
+	c.G0 = 108704
+	c.G1 = 21124
+	c.G2 = 21136
 	return c
 }
 func (c *Context) Copy() *Context {
@@ -275,14 +273,14 @@ func init() {
 	table[158] = tableEntry{f: f296, numParams: 2}
 	table[159] = tableEntry{f: f297, numParams: 2}
 	table[160] = tableEntry{f: f409, numParams: 3}
-	table[161] = tableEntry{f: f468, numParams: 2}
-	table[162] = tableEntry{f: f469, numParams: 2}
-	table[163] = tableEntry{f: f474, numParams: 2}
-	table[164] = tableEntry{f: f476, numParams: 2}
-	table[165] = tableEntry{f: f477, numParams: 2}
-	table[166] = tableEntry{f: f478, numParams: 2}
-	table[167] = tableEntry{f: f479, numParams: 2}
-	table[168] = tableEntry{f: f480, numParams: 2}
+	table[161] = tableEntry{f: f470, numParams: 2}
+	table[162] = tableEntry{f: f471, numParams: 2}
+	table[163] = tableEntry{f: f476, numParams: 2}
+	table[164] = tableEntry{f: f478, numParams: 2}
+	table[165] = tableEntry{f: f479, numParams: 2}
+	table[166] = tableEntry{f: f480, numParams: 2}
+	table[167] = tableEntry{f: f481, numParams: 2}
+	table[168] = tableEntry{f: f482, numParams: 2}
 	table[169] = tableEntry{f: f48, numParams: 2}
 	table[170] = tableEntry{f: f50, numParams: 2}
 	table[171] = tableEntry{f: f53, numParams: 2}
@@ -309,18 +307,18 @@ func init() {
 	table[192] = tableEntry{f: f87, numParams: 2}
 	table[193] = tableEntry{f: f89, numParams: 2}
 	table[194] = tableEntry{f: f0, numParams: 3}
-	table[195] = tableEntry{f: f528, numParams: 3}
-	table[196] = tableEntry{f: f529, numParams: 6}
-	table[197] = tableEntry{f: f530, numParams: 4}
+	table[195] = tableEntry{f: f530, numParams: 3}
+	table[196] = tableEntry{f: f531, numParams: 6}
+	table[197] = tableEntry{f: f532, numParams: 4}
 	table[198] = tableEntry{f: f1, numParams: 2}
 	table[199] = tableEntry{f: f2, numParams: 5}
-	table[200] = tableEntry{f: f531, numParams: 3}
-	table[201] = tableEntry{f: f5, numParams: 2}
-	table[202] = tableEntry{f: f7, numParams: 3}
-	table[203] = tableEntry{f: f559, numParams: 3}
-	table[204] = tableEntry{f: f557, numParams: 1}
-	table[205] = tableEntry{f: f561, numParams: 3}
-	table[206] = tableEntry{f: f563, numParams: 3}
-	table[207] = tableEntry{f: f577, numParams: 3}
-	table[208] = tableEntry{f: f637, numParams: 3}
+	table[200] = tableEntry{f: f533, numParams: 3}
+	table[201] = tableEntry{f: f6, numParams: 2}
+	table[202] = tableEntry{f: f8, numParams: 3}
+	table[203] = tableEntry{f: f534, numParams: 2}
+	table[204] = tableEntry{f: f560, numParams: 3}
+	table[205] = tableEntry{f: f558, numParams: 1}
+	table[206] = tableEntry{f: f562, numParams: 3}
+	table[207] = tableEntry{f: f564, numParams: 3}
+	table[208] = tableEntry{f: f578, numParams: 3}
 }

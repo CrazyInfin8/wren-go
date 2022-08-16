@@ -2185,7 +2185,7 @@ lbl15:
 	// get_local
 	s2i32 = l197
 	// call
-	f494(ctx, s0i32, s1i32, s2i32)
+	f496(ctx, s0i32, s1i32, s2i32)
 	// br
 	goto lbl10
 	// end_block
@@ -2223,7 +2223,7 @@ lbl14:
 	// get_local
 	s2i32 = l202
 	// call
-	f494(ctx, s0i32, s1i32, s2i32)
+	f496(ctx, s0i32, s1i32, s2i32)
 	// br
 	goto lbl10
 	// end_block
@@ -2317,7 +2317,7 @@ lbl12:
 	// get_local
 	s2i32 = l215
 	// call
-	s0i32 = f495(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f497(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l216 = s0i32
 	// const

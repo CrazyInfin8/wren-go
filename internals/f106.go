@@ -93,7 +93,7 @@ lbl1:
 	// get_local
 	s0i32 = l5
 	// call
-	s0i32 = f496(ctx, s0i32)
+	s0i32 = f498(ctx, s0i32)
 	// set_local
 	l6 = s0i32
 	// const
@@ -176,7 +176,7 @@ lbl0:
 	// get_local
 	s1i32 = l16
 	// call
-	f497(ctx, s0i32, s1i32)
+	f499(ctx, s0i32, s1i32)
 	// const
 	s0i32 = 16
 	// set_local

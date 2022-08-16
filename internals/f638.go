@@ -1,10 +1,14 @@
 package internals
 
-func f638(ctx *Context) {
+func f638(ctx *Context, l0 int32) {
+	var s0i32 int32
+	_ = s0i32
 	// call
 	f15(ctx)
+	// get_local
+	s0i32 = l0
 	// call
-	f16(ctx)
+	f347(ctx, s0i32)
 	// call
-	f553(ctx)
+	f554(ctx)
 }

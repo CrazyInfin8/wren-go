@@ -178,7 +178,7 @@ func f387(ctx *Context, l0 int64) int32 {
 	// get_local
 	s0i32 = l16
 	// call
-	s0i32 = f519(ctx, s0i32)
+	s0i32 = f521(ctx, s0i32)
 	// set_local
 	l17 = s0i32
 	// get_local
@@ -200,7 +200,7 @@ lbl1:
 	// get_local
 	s0i64 = l18
 	// call
-	s0i32 = f520(ctx, s0i64)
+	s0i32 = f522(ctx, s0i64)
 	// set_local
 	l19 = s0i32
 	// get_local

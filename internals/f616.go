@@ -10,9 +10,9 @@ func f616(ctx *Context, l0 int32) float64 {
 	// get_local
 	s0i32 = l0
 	// const
-	s1f64 = 3.105036184601418e+231
+	s1f64 = 1.2882297539194267e-231
 	// call
-	s0f64 = f614(ctx, s0i32, s1f64)
+	s0f64 = f615(ctx, s0i32, s1f64)
 	// return
 	return s0f64
 }

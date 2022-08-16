@@ -951,7 +951,7 @@ lbl5:
 	// get_local
 	s1i32 = l94
 	// call
-	f497(ctx, s0i32, s1i32)
+	f499(ctx, s0i32, s1i32)
 	// const
 	s0i32 = 16
 	// set_local

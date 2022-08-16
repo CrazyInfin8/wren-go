@@ -94,7 +94,7 @@ func f409(ctx *Context, l0 int32, l1 int32, l2 int32) int32 {
 	// get_local
 	s0i32 = l7
 	// call
-	f534(ctx, s0i32)
+	f537(ctx, s0i32)
 	// const
 	s0i32 = 0
 	// set_local
@@ -126,7 +126,7 @@ lbl1:
 	// get_local
 	s1i32 = l10
 	// call
-	s0i32 = f537(ctx, s0i32, s1i32)
+	s0i32 = f539(ctx, s0i32, s1i32)
 	// set_local
 	l11 = s0i32
 	// get_local

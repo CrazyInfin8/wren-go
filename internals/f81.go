@@ -346,7 +346,7 @@ lbl1:
 	// get_local
 	s1i32 = l5
 	// call
-	f490(ctx, s0i32, s1i32)
+	f492(ctx, s0i32, s1i32)
 	// get_local
 	s0i32 = l5
 	// load: i32.load

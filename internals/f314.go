@@ -469,7 +469,7 @@ lbl5:
 	// get_local
 	s0i32 = l25
 	// call
-	s0i32 = f583(ctx, s0i32)
+	s0i32 = f584(ctx, s0i32)
 	// set_local
 	l26 = s0i32
 	// get_local
@@ -907,7 +907,7 @@ lbl11:
 	// get_local
 	s0i32 = l76
 	// call
-	s0i32 = f583(ctx, s0i32)
+	s0i32 = f584(ctx, s0i32)
 	// set_local
 	l77 = s0i32
 	// get_local
@@ -941,7 +941,7 @@ lbl11:
 	// get_local
 	s2i32 = l80
 	// call
-	s0i32 = f580(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f581(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l5
 	// load: i32.load
@@ -1093,7 +1093,7 @@ lbl10:
 	// get_local
 	s2i32 = l100
 	// call
-	s0i32 = f580(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f581(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l5
 	// load: i32.load

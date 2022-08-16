@@ -1,48 +1,38 @@
 package internals
 
 import (
-	"encoding/binary"
+	"math"
 )
 
-func f543(ctx *Context, l0 int32) int32 {
+func f543(ctx *Context, l0 float64, l1 float64) float64 {
 	var s0i32 int32
 	_ = s0i32
-	var s1i32 int32
-	_ = s1i32
+	var s0f64 float64
+	_ = s0f64
+	var s1f64 float64
+	_ = s1f64
 	// block
 	// get_local
-	s0i32 = l0
+	s0f64 = l0
+	// get_local
+	s1f64 = l0
+	// binary: f64.ne
+	if s0f64 != s1f64 {
+		s0i32 = 1
+	} else {
+		s0i32 = 0
+	}
 	// br_if
 	if s0i32 != 0 {
 		goto lbl0
 	}
-	// current_mem
-	s0i32 = int32(len(ctx.Mem) / 65536)
-	// const
-	s1i32 = 16
-	// binary: i32.shl
-	s0i32 = s0i32 << (uint32(s1i32) & 31)
-	// return
-	return s0i32
-	// end_block
-lbl0:
 	// block
 	// get_local
-	s0i32 = l0
-	// const
-	s1i32 = 65535
-	// binary: i32.and
-	s0i32 = s0i32 & s1i32
-	// br_if
-	if s0i32 != 0 {
-		goto lbl1
-	}
+	s0f64 = l1
 	// get_local
-	s0i32 = l0
-	// const
-	s1i32 = -1
-	// binary: i32.le_s
-	if s0i32 <= s1i32 {
+	s1f64 = l1
+	// binary: f64.eq
+	if s0f64 == s1f64 {
 		s0i32 = 1
 	} else {
 		s0i32 = 0
@@ -51,54 +41,24 @@ lbl0:
 	if s0i32 != 0 {
 		goto lbl1
 	}
-	// block
 	// get_local
-	s0i32 = l0
-	// const
-	s1i32 = 16
-	// binary: i32.shr_u
-	s0i32 = int32(uint32(s0i32) >> (uint32(s1i32) & 31))
-	// grow_mem
-	s0i32 = int32(len(ctx.Mem) / 65536)
-	ctx.growMem(int(s0i32) * 65536)
-	// tee_local
-	l0 = s0i32
-	// const
-	s1i32 = -1
-	// binary: i32.ne
-	if s0i32 != s1i32 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl2
-	}
-	// const
-	s0i32 = 0
-	// const
-	s1i32 = 48
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
-	// const
-	s0i32 = -1
+	s0f64 = l0
 	// return
-	return s0i32
-	// end_block
-lbl2:
-	// get_local
-	s0i32 = l0
-	// const
-	s1i32 = 16
-	// binary: i32.shl
-	s0i32 = s0i32 << (uint32(s1i32) & 31)
-	// return
-	return s0i32
+	return s0f64
 	// end_block
 lbl1:
-	// call
-	f542(ctx)
-	// unreachable
-	panic("unreachable executed")
+	// get_local
+	s0f64 = l0
+	// get_local
+	s1f64 = l1
+	// binary: f64.max
+	s0f64 = math.Max(s0f64, s1f64)
+	// set_local
+	l1 = s0f64
+	// end_block
+lbl0:
+	// get_local
+	s0f64 = l1
+	// return
+	return s0f64
 }

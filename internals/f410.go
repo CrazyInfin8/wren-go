@@ -504,7 +504,7 @@ lbl0:
 	// get_local
 	s2i32 = l34
 	// call
-	s0i32 = f581(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f582(ctx, s0i32, s1i32, s2i32)
 	// get_local
 	s0i32 = l3
 	// load: i32.load

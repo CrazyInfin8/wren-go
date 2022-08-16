@@ -435,7 +435,7 @@ lbl2:
 	// get_local
 	s2i32 = l4
 	// call
-	s0i32 = f555(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f556(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l38 = s0i32
 	// get_local

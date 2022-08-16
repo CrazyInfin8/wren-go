@@ -151,7 +151,7 @@ func f55(ctx *Context, l0 int32) {
 	// get_local
 	s0i32 = l12
 	// call
-	s0i32 = f486(ctx, s0i32)
+	s0i32 = f488(ctx, s0i32)
 	// set_local
 	l13 = s0i32
 	// const

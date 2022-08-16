@@ -5,6 +5,7 @@ package main
 
 import (
 	"archive/tar"
+	"bytes"
 	"compress/gzip"
 	"fmt"
 	"io"
@@ -18,12 +19,25 @@ import (
 	"strings"
 )
 
-
 // These are used to build the go sources:
 //     `go env GOPATH`/bin/cmd ir wren.wasm -o wren.ir
 //     `go env GOPATH`/bin/cmd gen wren.ir -c -e=false -C -p internals -u -d internals
 
-// TODO: Wagu doesn't like wasms from wasi-sdk-16, should use 15 for now. Also fetching and extracting wasi-sdk from this script is broken at the moment. Some executable files are do not get copied for some unknown reason. For now it is best to manually download wasi-sdk-15 and store it in ./wasi-sdk.
+// TODO: Wagu doesn't like wasms from wasi-sdk-16, should use 15 for now. Also fetching and extracting wasi-sdk from this script is broken at the moment. Some executable files do not get copied for some unknown reason. For now it is best to manually download wasi-sdk-15 and store it in ./wasi-sdk.
+var WASI_SDK_URL string
+
+func init() {
+	switch runtime.GOOS {
+	case "windows":
+		WASI_SDK_URL = "/WebAssembly/wasi-sdk/releases/download/wasi-sdk-15/wasi-sdk-15.0-mingw.tar.gz"
+	case "linux":
+		WASI_SDK_URL = "/WebAssembly/wasi-sdk/releases/download/wasi-sdk-15/wasi-sdk-15.0-linux.tar.gz"
+	case "darwin":
+		WASI_SDK_URL = "/WebAssembly/wasi-sdk/releases/download/wasi-sdk-15/wasi-sdk-15.0-macos.tar.gz"
+	default:
+		panic("Wasi-sdk is not available to download for system: \"" + runtime.GOOS + "\". Please download into path ./wasi-sdk")
+	}
+}
 
 func main() {
 	// Fetch wren
@@ -47,29 +61,41 @@ func main() {
 	}
 	// Fetch Wasi SDK
 	if _, err := os.Stat("wasi-sdk"); os.IsNotExist(err) {
-		resp, err := http.Get("https://github.com/WebAssembly/wasi-sdk/releases/latest")
-		Must(err)
-		var search *regexp.Regexp
-		switch runtime.GOOS {
-		case "windows":
-			search = regexp.MustCompile(`\/WebAssembly\/wasi-sdk\/releases\/download\/wasi-sdk-\d+\/wasi-sdk-\d+\.0-linux\.tar\.gz`)
-		case "linux":
-			search = regexp.MustCompile(`\/WebAssembly\/wasi-sdk\/releases\/download\/wasi-sdk-\d+\/wasi-sdk-\d+\.0-mingw\.tar\.gz`)
-		case "darwin":
-			search = regexp.MustCompile(`\/WebAssembly\/wasi-sdk\/releases\/download\/wasi-sdk-\d+\/wasi-sdk-\d+\.0-macos\.tar\.gz`)
-		default:
-			panic("Wasi-sdk is not available to download for system: \"" + runtime.GOOS + "\". Please download into path ./wasi-sdk")
+		// If WASI_SDK_URL is not set, get the url for the latest release.
+		if WASI_SDK_URL == "" {
+			resp, err := http.Get("https://github.com/WebAssembly/wasi-sdk/releases/latest")
+			Must(err)
+			var search *regexp.Regexp
+			switch runtime.GOOS {
+			case "windows":
+				search = regexp.MustCompile(`\/WebAssembly\/wasi-sdk\/releases\/download\/wasi-sdk-\d+\/wasi-sdk-\d+\.0-mingw\.tar\.gz`)
+			case "linux":
+				search = regexp.MustCompile(`\/WebAssembly\/wasi-sdk\/releases\/download\/wasi-sdk-\d+\/wasi-sdk-\d+\.0-linux\.tar\.gz`)
+			case "darwin":
+				search = regexp.MustCompile(`\/WebAssembly\/wasi-sdk\/releases\/download\/wasi-sdk-\d+\/wasi-sdk-\d+\.0-macos\.tar\.gz`)
+			default:
+				panic("Wasi-sdk is not available to download for system: \"" + runtime.GOOS + "\". Please download into path ./wasi-sdk")
+			}
+			data, err := io.ReadAll(resp.Body)
+			Must(err)
+			url := search.Find(data)
+			if url == nil {
+				panic("Cannot find latest wasi-sdk download")
+			} else {
+				WASI_SDK_URL = string(url)
+			}
+			println("latest wasi-sdk is available at: github.com"+string(WASI_SDK_URL), "\nfetching...")
+		} else {
+			println("WASI_SDK_URL is set to: github.com"+string(WASI_SDK_URL), "\nfetching...")
 		}
+		resp, err := http.Get("https://github.com" + string(WASI_SDK_URL))
+		Must(err)
+		buf := bytes.Buffer{}
 		data, err := io.ReadAll(resp.Body)
 		Must(err)
-		WASI_SDK_URL := search.Find(data)
-		if WASI_SDK_URL == nil {
-			fmt.Println("Cannot find latest wasi-sdk download")
-		}
-		println("latest wasi-sdk is available at: github.com"+string(WASI_SDK_URL), "\nfetching...")
-		resp, err = http.Get("https://github.com" + string(WASI_SDK_URL))
+		_, err = buf.Write(data)
 		Must(err)
-		gzReader, err := gzip.NewReader(resp.Body)
+		gzReader, err := gzip.NewReader(&buf)
 		Must(err)
 		tarReader := tar.NewReader(gzReader)
 		header, eof := tarReader.Next()
@@ -82,7 +108,7 @@ func main() {
 				Must(os.Mkdir(currentPath, header.FileInfo().Mode()))
 			} else {
 				fmt.Println("Writing file: " + currentPath)
-				f, err := os.Create(currentPath)
+				f, err := os.OpenFile(currentPath, os.O_CREATE|os.O_WRONLY, 0777)
 				Must(err)
 				defer f.Close()
 				_, err = io.Copy(f, tarReader)
@@ -94,8 +120,9 @@ func main() {
 		Must(err)
 		fmt.Println("Wasi-sdk exists already")
 	}
+	// TODO: It appears that the files for wasi-sdk are closed but still held by some process so cannot be executed. Currently unsure how to resolve this issue but could work around it by running this script twice.
 	// Create wren.wasm
-	Must(Command("./wasi-sdk/bin/clang", append([]string{"-Iwren/src/include", "-Iwren/src/optional", "-Iwren/src/vm", "-D_WASI_EMULATED_PROCESS_CLOCKS", "-lwasi-emulated-process-clocks", "-Wdeprecated-register", /*"-Os",*/ "wren/wren.c", "src/*.c", "-o", "wren.wasm"}, GetExports()...)...).Run())
+	Must(Command("./wasi-sdk/bin/clang", append([]string{"-Iwren/src/include", "-Iwren/src/optional", "-Iwren/src/vm", "-D_WASI_EMULATED_PROCESS_CLOCKS", "-lwasi-emulated-process-clocks", "-Wdeprecated-register" /*"-Os",*/, "wren/wren.c", "src/*.c", "-o", "wren.wasm"}, GetExports()...)...).Run())
 	// Install wagu
 	Must(Command("go", "install", "github.com/crazyinfin8/wagu/cmd@latest").Run())
 	// Get path of Wagu
@@ -152,12 +179,9 @@ func GetExports() (exports []string) {
 	exports = append(exports,
 		"-Wl,--export=free",
 		"-Wl,--export=malloc",
-		"-Wl,--export=calloc",
-		"-Wl,--export=realloc",
-		"-Wl,--export=stdin",
-		"-Wl,--export=stdout",
-		"-Wl,--export=stderr",
 		"-Wl,--export=getVM",
+		"-Wl,--export=versionTuple",
+		"-Wl,--export=versionString",
 	)
 	return
 }

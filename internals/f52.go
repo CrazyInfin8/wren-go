@@ -108,7 +108,7 @@ func f52(ctx *Context, l0 int32, l1 int32, l2 int32, l3 int32) {
 	// get_local
 	s2i32 = l9
 	// call
-	s0i32 = f483(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f485(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l10 = s0i32
 	// get_local

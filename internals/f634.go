@@ -2,137 +2,163 @@ package internals
 
 import (
 	"encoding/binary"
+	"math"
 )
 
-func f634(ctx *Context, l0 int32, l1 int64, l2 int64, l3 int64, l4 int64) {
-	var l5 int64
-	_ = l5
+func f634(ctx *Context, l0 float64) float64 {
+	var l1 int32
+	_ = l1
+	var l2 int32
+	_ = l2
 	var s0i32 int32
 	_ = s0i32
+	var s1i32 int32
+	_ = s1i32
+	var s2i32 int32
+	_ = s2i32
+	var s3i32 int32
+	_ = s3i32
+	var s0i64 int64
+	_ = s0i64
 	var s1i64 int64
 	_ = s1i64
-	var s2i64 int64
-	_ = s2i64
-	var s3i64 int64
-	_ = s3i64
-	var s4i64 int64
-	_ = s4i64
-	// get_local
-	s0i32 = l0
-	// get_local
-	s1i64 = l4
-	// get_local
-	s2i64 = l1
-	// binary: i64.mul
-	s1i64 = s1i64 * s2i64
-	// get_local
-	s2i64 = l2
-	// get_local
-	s3i64 = l3
-	// binary: i64.mul
-	s2i64 = s2i64 * s3i64
-	// binary: i64.add
-	s1i64 = s1i64 + s2i64
-	// get_local
-	s2i64 = l3
+	var s0f64 float64
+	_ = s0f64
+	var s1f64 float64
+	_ = s1f64
+	// get_global
+	s0i32 = ctx.G0
 	// const
-	s3i64 = 32
+	s1i32 = 16
+	// binary: i32.sub
+	s0i32 = s0i32 - s1i32
+	// tee_local
+	l1 = s0i32
+	// set_global
+	ctx.G0 = s0i32
+	// block
+	// block
+	// get_local
+	s0f64 = l0
+	// unary: i64.reinterpret/f64
+	s0i64 = int64(math.Float64bits(s0f64))
+	// const
+	s1i64 = 32
 	// binary: i64.shr_u
-	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
+	s0i64 = int64(uint64(s0i64) >> (uint64(s1i64) & 63))
+	// unary: i32.wrap/i64
+	s0i32 = int32(s0i64)
+	// const
+	s1i32 = 2147483647
+	// binary: i32.and
+	s0i32 = s0i32 & s1i32
 	// tee_local
-	l4 = s2i64
-	// get_local
-	s3i64 = l1
+	l2 = s0i32
 	// const
-	s4i64 = 32
-	// binary: i64.shr_u
-	s3i64 = int64(uint64(s3i64) >> (uint64(s4i64) & 63))
-	// tee_local
-	l2 = s3i64
-	// binary: i64.mul
-	s2i64 = s2i64 * s3i64
-	// binary: i64.add
-	s1i64 = s1i64 + s2i64
+	s1i32 = 1072243195
+	// binary: i32.gt_u
+	if uint32(s0i32) > uint32(s1i32) {
+		s0i32 = 1
+	} else {
+		s0i32 = 0
+	}
+	// br_if
+	if s0i32 != 0 {
+		goto lbl1
+	}
 	// get_local
-	s2i64 = l3
+	s0i32 = l2
 	// const
-	s3i64 = 4294967295
-	// binary: i64.and
-	s2i64 = s2i64 & s3i64
-	// tee_local
-	l3 = s2i64
+	s1i32 = 1044381696
+	// binary: i32.lt_u
+	if uint32(s0i32) < uint32(s1i32) {
+		s0i32 = 1
+	} else {
+		s0i32 = 0
+	}
+	// br_if
+	if s0i32 != 0 {
+		goto lbl0
+	}
 	// get_local
-	s3i64 = l1
+	s0f64 = l0
 	// const
-	s4i64 = 4294967295
-	// binary: i64.and
-	s3i64 = s3i64 & s4i64
-	// tee_local
-	l1 = s3i64
-	// binary: i64.mul
-	s2i64 = s2i64 * s3i64
-	// tee_local
-	l5 = s2i64
+	s1f64 = 0
 	// const
-	s3i64 = 32
-	// binary: i64.shr_u
-	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
+	s2i32 = 0
+	// call
+	s0f64 = f633(ctx, s0f64, s1f64, s2i32)
+	// set_local
+	l0 = s0f64
+	// br
+	goto lbl0
+	// end_block
+lbl1:
+	// block
 	// get_local
-	s3i64 = l3
-	// get_local
-	s4i64 = l2
-	// binary: i64.mul
-	s3i64 = s3i64 * s4i64
-	// binary: i64.add
-	s2i64 = s2i64 + s3i64
-	// tee_local
-	l3 = s2i64
+	s0i32 = l2
 	// const
-	s3i64 = 32
-	// binary: i64.shr_u
-	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
-	// binary: i64.add
-	s1i64 = s1i64 + s2i64
+	s1i32 = 2146435072
+	// binary: i32.lt_u
+	if uint32(s0i32) < uint32(s1i32) {
+		s0i32 = 1
+	} else {
+		s0i32 = 0
+	}
+	// br_if
+	if s0i32 != 0 {
+		goto lbl2
+	}
 	// get_local
-	s2i64 = l3
+	s0f64 = l0
+	// get_local
+	s1f64 = l0
+	// binary: f64.sub
+	s0f64 = s0f64 - s1f64
+	// set_local
+	l0 = s0f64
+	// br
+	goto lbl0
+	// end_block
+lbl2:
+	// get_local
+	s0f64 = l0
+	// get_local
+	s1i32 = l1
+	// call
+	s0i32 = f612(ctx, s0f64, s1i32)
+	// set_local
+	l2 = s0i32
+	// get_local
+	s0i32 = l1
+	// load: f64.load
+	s0f64 = math.Float64frombits(binary.LittleEndian.Uint64(ctx.Mem[int(s0i32+0):]))
+	// get_local
+	s1i32 = l1
+	// load: f64.load
+	s1f64 = math.Float64frombits(binary.LittleEndian.Uint64(ctx.Mem[int(s1i32+8):]))
+	// get_local
+	s2i32 = l2
 	// const
-	s3i64 = 4294967295
-	// binary: i64.and
-	s2i64 = s2i64 & s3i64
+	s3i32 = 1
+	// binary: i32.and
+	s2i32 = s2i32 & s3i32
+	// call
+	s0f64 = f633(ctx, s0f64, s1f64, s2i32)
+	// set_local
+	l0 = s0f64
+	// end_block
+lbl0:
 	// get_local
-	s3i64 = l4
-	// get_local
-	s4i64 = l1
-	// binary: i64.mul
-	s3i64 = s3i64 * s4i64
-	// binary: i64.add
-	s2i64 = s2i64 + s3i64
-	// tee_local
-	l3 = s2i64
+	s0i32 = l1
 	// const
-	s3i64 = 32
-	// binary: i64.shr_u
-	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
-	// binary: i64.add
-	s1i64 = s1i64 + s2i64
-	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+8):], uint64(s1i64))
+	s1i32 = 16
+	// binary: i32.add
+	s0i32 = s0i32 + s1i32
+	// set_global
+	ctx.G0 = s0i32
 	// get_local
-	s0i32 = l0
-	// get_local
-	s1i64 = l3
-	// const
-	s2i64 = 32
-	// binary: i64.shl
-	s1i64 = s1i64 << (uint64(s2i64) & 63)
-	// get_local
-	s2i64 = l5
-	// const
-	s3i64 = 4294967295
-	// binary: i64.and
-	s2i64 = s2i64 & s3i64
-	// binary: i64.or
-	s1i64 = s1i64 | s2i64
-	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], uint64(s1i64))
+	s0f64 = l0
+	// return
+	return s0f64
 }

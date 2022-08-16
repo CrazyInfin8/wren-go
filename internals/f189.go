@@ -442,7 +442,7 @@ lbl2:
 	// get_local
 	s1i32 = l27
 	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42124):], uint32(s1i32))
+	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+42076):], uint32(s1i32))
 	// get_local
 	s0i32 = l4
 	// load: i32.load
@@ -482,7 +482,7 @@ lbl2:
 	// get_local
 	s1i32 = l34
 	// call
-	s0f64 = f597(ctx, s0i32, s1i32)
+	s0f64 = f598(ctx, s0i32, s1i32)
 	// set_local
 	l35 = s0f64
 	// get_local
@@ -671,7 +671,7 @@ lbl5:
 	// get_local
 	s0i32 = l58
 	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42124):]))
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+42076):]))
 	// set_local
 	l59 = s0i32
 	// const

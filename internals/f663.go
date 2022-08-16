@@ -12,7 +12,7 @@ func f663(ctx *Context, l0 int32, l1 int32) {
 	// get_local
 	s1i32 = l1
 	// call
-	f448(ctx, s0i32, s1i32)
+	f451(ctx, s0i32, s1i32)
 	// call
-	f553(ctx)
+	f554(ctx)
 }

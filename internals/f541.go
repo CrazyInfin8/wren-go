@@ -1,23 +1,69 @@
 package internals
 
 import (
-	"math"
+	"encoding/binary"
 )
 
-func f541(ctx *Context, l0 float64, l1 float64) float64 {
+func f541(ctx *Context, l0 int32) int64 {
+	var l1 int32
+	_ = l1
+	var l2 int64
+	_ = l2
 	var s0i32 int32
 	_ = s0i32
-	var s0f64 float64
-	_ = s0f64
-	var s1f64 float64
-	_ = s1f64
+	var s1i32 int32
+	_ = s1i32
+	var s2i32 int32
+	_ = s2i32
+	var s3i32 int32
+	_ = s3i32
+	var s0i64 int64
+	_ = s0i64
+	var s1i64 int64
+	_ = s1i64
+	// get_global
+	s0i32 = ctx.G0
+	// const
+	s1i32 = 16
+	// binary: i32.sub
+	s0i32 = s0i32 - s1i32
+	// tee_local
+	l1 = s0i32
+	// set_global
+	ctx.G0 = s0i32
+	// get_local
+	s0i32 = l1
+	// const
+	s1i64 = 0
+	// store: i64.store
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+8):], uint64(s1i64))
+	// const
+	s0i32 = 0
+	// const
+	s1i64 = 1000000000
+	// get_local
+	s2i32 = l1
+	// const
+	s3i32 = 8
+	// binary: i32.add
+	s2i32 = s2i32 + s3i32
+	// call
+	s0i32 = f546(ctx, s0i32, s1i64, s2i32)
+	// get_local
+	s0i32 = l1
+	// load: i64.load
+	s0i64 = int64(binary.LittleEndian.Uint64(ctx.Mem[int(s0i32+8):]))
+	// const
+	s1i64 = 1000000000
+	// binary: i64.div_u
+	s0i64 = i64DivU(s0i64, s1i64)
+	// set_local
+	l2 = s0i64
 	// block
 	// get_local
-	s0f64 = l0
-	// get_local
-	s1f64 = l0
-	// binary: f64.ne
-	if s0f64 != s1f64 {
+	s0i32 = l0
+	// unary: i32.eqz
+	if s0i32 == 0 {
 		s0i32 = 1
 	} else {
 		s0i32 = 0
@@ -26,39 +72,24 @@ func f541(ctx *Context, l0 float64, l1 float64) float64 {
 	if s0i32 != 0 {
 		goto lbl0
 	}
-	// block
 	// get_local
-	s0f64 = l1
+	s0i32 = l0
 	// get_local
-	s1f64 = l1
-	// binary: f64.eq
-	if s0f64 == s1f64 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl1
-	}
-	// get_local
-	s0f64 = l0
-	// return
-	return s0f64
-	// end_block
-lbl1:
-	// get_local
-	s0f64 = l0
-	// get_local
-	s1f64 = l1
-	// binary: f64.max
-	s0f64 = math.Max(s0f64, s1f64)
-	// set_local
-	l1 = s0f64
+	s1i64 = l2
+	// store: i64.store
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], uint64(s1i64))
 	// end_block
 lbl0:
 	// get_local
-	s0f64 = l1
+	s0i32 = l1
+	// const
+	s1i32 = 16
+	// binary: i32.add
+	s0i32 = s0i32 + s1i32
+	// set_global
+	ctx.G0 = s0i32
+	// get_local
+	s0i64 = l2
 	// return
-	return s0f64
+	return s0i64
 }

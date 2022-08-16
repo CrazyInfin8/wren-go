@@ -86,7 +86,7 @@ func f304(ctx *Context, l0 int32, l1 int32) int64 {
 	// get_local
 	s0i32 = l7
 	// call
-	s0i32 = f583(ctx, s0i32)
+	s0i32 = f584(ctx, s0i32)
 	// set_local
 	l8 = s0i32
 	// get_local

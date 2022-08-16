@@ -8,7 +8,7 @@ func f643(ctx *Context, l0 int32) {
 	// get_local
 	s0i32 = l0
 	// call
-	f534(ctx, s0i32)
+	f411(ctx, s0i32)
 	// call
-	f553(ctx)
+	f554(ctx)
 }

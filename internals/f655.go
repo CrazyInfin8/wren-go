@@ -1,12 +1,10 @@
 package internals
 
-func f655(ctx *Context, l0 int32, l1 int32) float64 {
+func f655(ctx *Context, l0 int32, l1 int32) int32 {
 	var s0i32 int32
 	_ = s0i32
 	var s1i32 int32
 	_ = s1i32
-	var s0f64 float64
-	_ = s0f64
 	// call
 	f15(ctx)
 	// get_local
@@ -14,9 +12,9 @@ func f655(ctx *Context, l0 int32, l1 int32) float64 {
 	// get_local
 	s1i32 = l1
 	// call
-	s0f64 = f439(ctx, s0i32, s1i32)
+	s0i32 = f442(ctx, s0i32, s1i32)
 	// call
-	f553(ctx)
+	f554(ctx)
 	// return
-	return s0f64
+	return s0i32
 }

@@ -698,7 +698,7 @@ lbl5:
 	// get_local
 	s2i32 = l5
 	// call
-	s0i32 = f555(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f556(ctx, s0i32, s1i32, s2i32)
 	// br
 	goto lbl6
 	// end_block
@@ -770,7 +770,7 @@ lbl7:
 	// get_local
 	s2i32 = l75
 	// call
-	s0i32 = f555(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f556(ctx, s0i32, s1i32, s2i32)
 	// end_block
 lbl6:
 	// get_local

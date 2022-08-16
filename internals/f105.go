@@ -616,7 +616,7 @@ lbl4:
 	// set_local
 	l52 = s0i32
 	// const
-	s0i32 = 40672
+	s0i32 = 40736
 	// set_local
 	l53 = s0i32
 	// const
@@ -706,7 +706,7 @@ lbl4:
 	// set_local
 	l65 = s0i32
 	// const
-	s0i32 = 40672
+	s0i32 = 40736
 	// set_local
 	l66 = s0i32
 	// const
@@ -799,7 +799,7 @@ lbl4:
 	// set_local
 	l78 = s0i32
 	// const
-	s0i32 = 40672
+	s0i32 = 40736
 	// set_local
 	l79 = s0i32
 	// const
@@ -841,7 +841,7 @@ lbl4:
 	// get_local
 	s2i32 = l84
 	// call
-	s0i32 = f579(ctx, s0i32, s1i32, s2i32)
+	s0i32 = f580(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l85 = s0i32
 	// get_local
@@ -857,7 +857,7 @@ lbl4:
 	// set_local
 	l86 = s0i32
 	// const
-	s0i32 = 40672
+	s0i32 = 40736
 	// set_local
 	l87 = s0i32
 	// const

@@ -467,7 +467,7 @@ lbl2:
 	// get_local
 	s1i32 = l25
 	// call
-	s0i32 = f505(ctx, s0i32, s1i32)
+	s0i32 = f507(ctx, s0i32, s1i32)
 	// get_local
 	s0i32 = l3
 	// load: i32.load
@@ -660,7 +660,7 @@ lbl5:
 	// get_local
 	s1i32 = l49
 	// call
-	s0i32 = f505(ctx, s0i32, s1i32)
+	s0i32 = f507(ctx, s0i32, s1i32)
 	// get_local
 	s0i32 = l3
 	// load: i32.load
@@ -804,7 +804,7 @@ lbl4:
 	// get_local
 	s0i32 = l67
 	// call
-	f506(ctx, s0i32)
+	f508(ctx, s0i32)
 	// br
 	goto lbl6
 	// end_block
@@ -862,7 +862,7 @@ lbl7:
 	// get_local
 	s0i32 = l73
 	// call
-	f507(ctx, s0i32)
+	f509(ctx, s0i32)
 	// br
 	goto lbl8
 	// end_block
@@ -1193,7 +1193,7 @@ lbl11:
 	// get_local
 	s0i32 = l111
 	// call
-	f508(ctx, s0i32)
+	f510(ctx, s0i32)
 	// br
 	goto lbl15
 	// end_block
@@ -1251,7 +1251,7 @@ lbl16:
 	// get_local
 	s0i32 = l117
 	// call
-	f500(ctx, s0i32)
+	f502(ctx, s0i32)
 	// get_local
 	s0i32 = l3
 	// load: i32.load
@@ -1261,7 +1261,7 @@ lbl16:
 	// get_local
 	s0i32 = l118
 	// call
-	s0i32 = f488(ctx, s0i32)
+	s0i32 = f490(ctx, s0i32)
 	// set_local
 	l119 = s0i32
 	// const
@@ -1316,7 +1316,7 @@ lbl19:
 	// get_local
 	s0i32 = l124
 	// call
-	f504(ctx, s0i32)
+	f506(ctx, s0i32)
 	// br
 	goto lbl17
 	// end_block
