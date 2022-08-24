@@ -590,6 +590,7 @@ func NewVM(cfg Config) VM {
 	e.finalizers = make(map[int32]func(VM, interface{}))
 	e.cfg = cfg
 	e.ctx = internals.NewContext(e)
+	e.ctx.MaxSize = 0x7FFFFFFF
 	e.ctx.Start()
 	return VM{e}
 }

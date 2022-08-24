@@ -6,11 +6,12 @@ import (
 )
 
 type Context struct {
-	Mem []byte
-	f   ImportedFuncs
-	G0  int32
-	G1  int32
-	G2  int32
+	Mem     []byte
+	MaxSize int
+	f       ImportedFuncs
+	G0      int32
+	G1      int32
+	G2      int32
 }
 
 func NewContext(f ImportedFuncs) *Context {
@@ -27,8 +28,24 @@ func (c *Context) Copy() *Context {
 	return &d
 }
 
+var (
+	ErrOutOfMemory = errors.New("out of memory")
+)
+
 func (c *Context) growMem(size int) {
-	c.Mem = append(c.Mem, make([]byte, size)...)
+	if size == 0 {
+		return
+	}
+	newSize := len(c.Mem) + size
+	if c.MaxSize > 0 && newSize > c.MaxSize {
+		if len(c.Mem) >= size {
+			panic(ErrOutOfMemory)
+		}
+		newSize = c.MaxSize
+	}
+	newMem := make([]byte, newSize)
+	copy(newMem, c.Mem)
+	c.Mem = newMem
 }
 
 var (

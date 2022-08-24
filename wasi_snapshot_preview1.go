@@ -58,11 +58,6 @@ func (wasi_snapshot_preview1) fd_fdstat_get(ctx *internals.Context, fd int32,
 	}
 }
 
-func (wasi_snapshot_preview1) fd_read(ctx *internals.Context, fd int32,
-	iovs int32, iovsCount int32, size int32) (errno int32) {
-	panic("Unimplemented")
-}
-
 func (wasi_snapshot_preview1) fd_seek(ctx *internals.Context, fd int32,
 	offset int64, whence int32, newOffset int32) (errno int32) {
 	panic("Unimplemented")

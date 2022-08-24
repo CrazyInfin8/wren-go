@@ -1,10 +1,12 @@
 package wren_test
 
 import (
+	"errors"
 	"testing"
 	"time"
 
 	"github.com/crazyinfin8/wren-go"
+	"github.com/crazyinfin8/wren-go/internals"
 )
 
 func Test(t *testing.T) {
@@ -158,4 +160,41 @@ func TestExit(t *testing.T) {
 
 	time.Sleep(15 * time.Microsecond)
 	vm.Exit()
+}
+
+func TestOOM(t *testing.T) {
+	defer func() {
+		v := recover()
+		err, ok := v.(error)
+
+		if !ok {
+			println(v)
+			t.Fatal("Expected Error")
+			t.FailNow()
+		}
+		if !errors.Is(err, internals.ErrOutOfMemory) {
+			t.Fatal("Expected out of memory error")
+		}
+		t.Log("Received expected error:", err.Error())
+	}()
+
+	cfg := wren.Config{}
+
+	cfg.WriteFn = func(vm wren.VM, message string) { t.Log(message) }
+
+	cfg.ErrorFn = func(vm wren.VM, err error) { t.Error(err.Error()) }
+
+	vm := wren.NewVM(cfg)
+
+	vm.Interpret("main", `
+	var list = []
+	var start = System.clock
+	for (i in 0...1000000) list.add(i)
+
+	var sum = 0
+	for (i in list) sum = sum + i
+
+	System.print(sum)
+	System.print("elapsed: %(System.clock - start)")
+	`)
 }
