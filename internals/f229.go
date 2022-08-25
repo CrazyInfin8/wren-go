@@ -90,19 +90,19 @@ func f229(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s0i64 = l6
 	// call
-	s0f64 = f93(ctx, s0i64)
+	s0f64 = f98(ctx, s0i64)
 	// set_local
 	l7 = s0f64
 	// get_local
 	s0f64 = l7
 	// call
-	s0f64 = f618(ctx, s0f64)
+	s0f64 = f628(ctx, s0f64)
 	// set_local
 	l8 = s0f64
 	// get_local
 	s0f64 = l8
 	// call
-	s0i64 = f321(ctx, s0f64)
+	s0i64 = f326(ctx, s0f64)
 	// set_local
 	l9 = s0i64
 	// get_local

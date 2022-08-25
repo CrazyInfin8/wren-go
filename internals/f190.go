@@ -2,7 +2,6 @@ package internals
 
 import (
 	"encoding/binary"
-	"math"
 )
 
 func f190(ctx *Context, l0 int32, l1 int32) int32 {
@@ -12,9 +11,9 @@ func f190(ctx *Context, l0 int32, l1 int32) int32 {
 	_ = l3
 	var l4 int32
 	_ = l4
-	var l5 float64
+	var l5 int32
 	_ = l5
-	var l6 int64
+	var l6 int32
 	_ = l6
 	var l7 int32
 	_ = l7
@@ -32,12 +31,8 @@ func f190(ctx *Context, l0 int32, l1 int32) int32 {
 	_ = s0i32
 	var s1i32 int32
 	_ = s1i32
-	var s0i64 int64
-	_ = s0i64
-	var s1i64 int64
-	_ = s1i64
-	var s0f64 float64
-	_ = s0f64
+	var s2i32 int32
+	_ = s2i32
 	// get_global
 	s0i32 = ctx.G0
 	// set_local
@@ -70,30 +65,32 @@ func f190(ctx *Context, l0 int32, l1 int32) int32 {
 	s1i32 = l1
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+8):], uint32(s1i32))
-	// const
-	s0f64 = math.Inf(0)
-	// set_local
-	l5 = s0f64
 	// get_local
-	s0f64 = l5
-	// call
-	s0i64 = f321(ctx, s0f64)
+	s0i32 = l4
+	// load: i32.load
+	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+12):]))
 	// set_local
-	l6 = s0i64
+	l5 = s0i32
 	// get_local
 	s0i32 = l4
 	// load: i32.load
 	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+8):]))
 	// set_local
+	l6 = s0i32
+	// const
+	s0i32 = 16
+	// set_local
 	l7 = s0i32
 	// get_local
-	s0i32 = l7
+	s0i32 = l5
 	// get_local
-	s1i64 = l6
-	// store: i64.store
-	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], uint64(s1i64))
+	s1i32 = l6
+	// get_local
+	s2i32 = l7
+	// call
+	f327(ctx, s0i32, s1i32, s2i32)
 	// const
-	s0i32 = 1
+	s0i32 = 0
 	// set_local
 	l8 = s0i32
 	// const

@@ -1,14 +1,22 @@
 package internals
 
-func f640(ctx *Context, l0 int32) {
+func f640(ctx *Context, l0 int32, l1 int32, l2 int32) int32 {
 	var s0i32 int32
 	_ = s0i32
-	// call
-	f15(ctx)
+	var s1i32 int32
+	_ = s1i32
+	var s2i32 int32
+	_ = s2i32
 	// get_local
 	s0i32 = l0
+	// get_local
+	s1i32 = l1
+	// get_local
+	s2i32 = l2
 	// call
-	f408(ctx, s0i32)
+	s0i32 = f153(ctx, s0i32, s1i32, s2i32)
 	// call
-	f554(ctx)
+	f550(ctx)
+	// return
+	return s0i32
 }

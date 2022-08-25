@@ -1,119 +1,33 @@
 package internals
 
-import (
-	"encoding/binary"
-)
-
-func f598(ctx *Context, l0 int32, l1 int32) float64 {
-	var l2 int32
-	_ = l2
-	var l3 float64
-	_ = l3
+func f598(ctx *Context, l0 int32, l1 int32) int32 {
 	var s0i32 int32
 	_ = s0i32
 	var s1i32 int32
 	_ = s1i32
 	var s2i32 int32
 	_ = s2i32
-	var s3i32 int32
-	_ = s3i32
-	var s1i64 int64
-	_ = s1i64
-	var s0f64 float64
-	_ = s0f64
-	// get_global
-	s0i32 = ctx.G0
-	// const
-	s1i32 = 112
-	// binary: i32.sub
-	s0i32 = s0i32 - s1i32
-	// tee_local
-	l2 = s0i32
-	// set_global
-	ctx.G0 = s0i32
-	// get_local
-	s0i32 = l2
-	// get_local
-	s1i32 = l0
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+40):], uint32(s1i32))
-	// get_local
-	s0i32 = l2
-	// get_local
-	s1i32 = l0
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
-	// get_local
-	s0i32 = l2
-	// const
-	s1i32 = -1
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+8):], uint32(s1i32))
-	// get_local
-	s0i32 = l2
-	// const
-	s1i64 = 0
-	// call
-	f593(ctx, s0i32, s1i64)
-	// get_local
-	s0i32 = l2
-	// const
-	s1i32 = 1
-	// const
-	s2i32 = 1
-	// call
-	s0f64 = f595(ctx, s0i32, s1i32, s2i32)
-	// set_local
-	l3 = s0f64
 	// block
 	// get_local
-	s0i32 = l1
-	// unary: i32.eqz
-	if s0i32 == 0 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
+	s0i32 = l0
 	// br_if
 	if s0i32 != 0 {
 		goto lbl0
 	}
-	// get_local
-	s0i32 = l1
-	// get_local
-	s1i32 = l0
-	// get_local
-	s2i32 = l2
-	// load: i32.load
-	s2i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s2i32+4):]))
-	// get_local
-	s3i32 = l2
-	// load: i32.load
-	s3i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s3i32+96):]))
-	// binary: i32.add
-	s2i32 = s2i32 + s3i32
-	// get_local
-	s3i32 = l2
-	// load: i32.load
-	s3i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s3i32+40):]))
-	// binary: i32.sub
-	s2i32 = s2i32 - s3i32
-	// binary: i32.add
-	s1i32 = s1i32 + s2i32
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
+	// const
+	s0i32 = 0
+	// return
+	return s0i32
 	// end_block
 lbl0:
 	// get_local
-	s0i32 = l2
-	// const
-	s1i32 = 112
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// set_global
-	ctx.G0 = s0i32
+	s0i32 = l0
 	// get_local
-	s0f64 = l3
+	s1i32 = l1
+	// const
+	s2i32 = 0
+	// call
+	s0i32 = f597(ctx, s0i32, s1i32, s2i32)
 	// return
-	return s0f64
+	return s0i32
 }

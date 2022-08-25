@@ -130,7 +130,7 @@ func f235(ctx *Context, l0 int32, l1 int32) int32 {
 	// set_local
 	l7 = s0i64
 	// const
-	s0i32 = 1621
+	s0i32 = 1881
 	// set_local
 	l8 = s0i32
 	// get_local
@@ -140,7 +140,7 @@ func f235(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s2i32 = l8
 	// call
-	s0i32 = f325(ctx, s0i32, s1i64, s2i32)
+	s0i32 = f330(ctx, s0i32, s1i64, s2i32)
 	// set_local
 	l9 = s0i32
 	// const
@@ -204,7 +204,7 @@ lbl1:
 	// get_local
 	s0i64 = l16
 	// call
-	s0f64 = f93(ctx, s0i64)
+	s0f64 = f98(ctx, s0i64)
 	// set_local
 	l17 = s0f64
 	// get_local
@@ -222,7 +222,7 @@ lbl1:
 	// get_local
 	s0i64 = l19
 	// call
-	s0f64 = f93(ctx, s0i64)
+	s0f64 = f98(ctx, s0i64)
 	// set_local
 	l20 = s0f64
 	// get_local
@@ -230,13 +230,13 @@ lbl1:
 	// get_local
 	s1f64 = l20
 	// call
-	s0f64 = f627(ctx, s0f64, s1f64)
+	s0f64 = f616(ctx, s0f64, s1f64)
 	// set_local
 	l21 = s0f64
 	// get_local
 	s0f64 = l21
 	// call
-	s0i64 = f321(ctx, s0f64)
+	s0i64 = f326(ctx, s0f64)
 	// set_local
 	l22 = s0i64
 	// get_local

@@ -2,9 +2,10 @@ package internals
 
 import (
 	"encoding/binary"
+	"math"
 )
 
-func f453(ctx *Context, l0 int32, l1 int32, l2 int32) {
+func f453(ctx *Context, l0 int32, l1 int32, l2 float64) {
 	var l3 int32
 	_ = l3
 	var l4 int32
@@ -15,16 +16,14 @@ func f453(ctx *Context, l0 int32, l1 int32, l2 int32) {
 	_ = l6
 	var l7 int32
 	_ = l7
-	var l8 int32
+	var l8 float64
 	_ = l8
-	var l9 int32
+	var l9 int64
 	_ = l9
-	var l10 int64
+	var l10 int32
 	_ = l10
 	var l11 int32
 	_ = l11
-	var l12 int32
-	_ = l12
 	var s0i32 int32
 	_ = s0i32
 	var s1i32 int32
@@ -33,6 +32,10 @@ func f453(ctx *Context, l0 int32, l1 int32, l2 int32) {
 	_ = s0i64
 	var s2i64 int64
 	_ = s2i64
+	var s0f64 float64
+	_ = s0f64
+	var s1f64 float64
+	_ = s1f64
 	// get_global
 	s0i32 = ctx.G0
 	// set_local
@@ -68,9 +71,9 @@ func f453(ctx *Context, l0 int32, l1 int32, l2 int32) {
 	// get_local
 	s0i32 = l5
 	// get_local
-	s1i32 = l2
-	// store: i32.store
-	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+4):], uint32(s1i32))
+	s1f64 = l2
+	// store: f64.store
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], math.Float64bits(s1f64))
 	// get_local
 	s0i32 = l5
 	// load: i32.load
@@ -85,46 +88,38 @@ func f453(ctx *Context, l0 int32, l1 int32, l2 int32) {
 	l7 = s0i32
 	// get_local
 	s0i32 = l5
-	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+12):]))
+	// load: f64.load
+	s0f64 = math.Float64frombits(binary.LittleEndian.Uint64(ctx.Mem[int(s0i32+0):]))
 	// set_local
-	l8 = s0i32
+	l8 = s0f64
 	// get_local
-	s0i32 = l5
-	// load: i32.load
-	s0i32 = int32(binary.LittleEndian.Uint32(ctx.Mem[int(s0i32+4):]))
-	// set_local
-	l9 = s0i32
-	// get_local
-	s0i32 = l8
-	// get_local
-	s1i32 = l9
+	s0f64 = l8
 	// call
-	s0i64 = f304(ctx, s0i32, s1i32)
+	s0i64 = f326(ctx, s0f64)
 	// set_local
-	l10 = s0i64
+	l9 = s0i64
 	// get_local
 	s0i32 = l6
 	// get_local
 	s1i32 = l7
 	// get_local
-	s2i64 = l10
+	s2i64 = l9
 	// call
-	f446(ctx, s0i32, s1i32, s2i64)
+	f451(ctx, s0i32, s1i32, s2i64)
 	// const
 	s0i32 = 16
 	// set_local
-	l11 = s0i32
+	l10 = s0i32
 	// get_local
 	s0i32 = l5
 	// get_local
-	s1i32 = l11
+	s1i32 = l10
 	// binary: i32.add
 	s0i32 = s0i32 + s1i32
 	// set_local
-	l12 = s0i32
+	l11 = s0i32
 	// get_local
-	s0i32 = l12
+	s0i32 = l11
 	// set_global
 	ctx.G0 = s0i32
 	// return

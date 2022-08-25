@@ -5,14 +5,12 @@ func f648(ctx *Context, l0 int32, l1 int32) {
 	_ = s0i32
 	var s1i32 int32
 	_ = s1i32
-	// call
-	f15(ctx)
 	// get_local
 	s0i32 = l0
 	// get_local
 	s1i32 = l1
 	// call
-	f431(ctx, s0i32, s1i32)
+	f436(ctx, s0i32, s1i32)
 	// call
-	f554(ctx)
+	f550(ctx)
 }

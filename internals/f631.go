@@ -1,218 +1,138 @@
 package internals
 
 import (
-	"math"
+	"encoding/binary"
 )
 
-func f631(ctx *Context, l0 float64, l1 int32) float64 {
+func f631(ctx *Context, l0 int32, l1 int64, l2 int64, l3 int64, l4 int64) {
+	var l5 int64
+	_ = l5
 	var s0i32 int32
 	_ = s0i32
-	var s1i32 int32
-	_ = s1i32
-	var s2i32 int32
-	_ = s2i32
-	var s3i32 int32
-	_ = s3i32
 	var s1i64 int64
 	_ = s1i64
 	var s2i64 int64
 	_ = s2i64
-	var s0f64 float64
-	_ = s0f64
-	var s1f64 float64
-	_ = s1f64
-	// block
-	// block
+	var s3i64 int64
+	_ = s3i64
+	var s4i64 int64
+	_ = s4i64
 	// get_local
-	s0i32 = l1
-	// const
-	s1i32 = 1024
-	// binary: i32.lt_s
-	if s0i32 < s1i32 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl1
-	}
+	s0i32 = l0
 	// get_local
-	s0f64 = l0
-	// const
-	s1f64 = 8.98846567431158e+307
-	// binary: f64.mul
-	s0f64 = s0f64 * s1f64
-	// set_local
-	l0 = s0f64
-	// block
+	s1i64 = l4
 	// get_local
-	s0i32 = l1
-	// const
-	s1i32 = 2047
-	// binary: i32.ge_u
-	if uint32(s0i32) >= uint32(s1i32) {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl2
-	}
+	s2i64 = l1
+	// binary: i64.mul
+	s1i64 = s1i64 * s2i64
 	// get_local
-	s0i32 = l1
-	// const
-	s1i32 = -1023
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// set_local
-	l1 = s0i32
-	// br
-	goto lbl0
-	// end_block
-lbl2:
+	s2i64 = l2
 	// get_local
-	s0f64 = l0
-	// const
-	s1f64 = 8.98846567431158e+307
-	// binary: f64.mul
-	s0f64 = s0f64 * s1f64
-	// set_local
-	l0 = s0f64
+	s3i64 = l3
+	// binary: i64.mul
+	s2i64 = s2i64 * s3i64
+	// binary: i64.add
+	s1i64 = s1i64 + s2i64
 	// get_local
-	s0i32 = l1
+	s2i64 = l3
 	// const
-	s1i32 = 3069
+	s3i64 = 32
+	// binary: i64.shr_u
+	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
+	// tee_local
+	l4 = s2i64
 	// get_local
-	s2i32 = l1
+	s3i64 = l1
 	// const
-	s3i32 = 3069
-	// binary: i32.lt_u
-	if uint32(s2i32) < uint32(s3i32) {
-		s2i32 = 1
-	} else {
-		s2i32 = 0
-	}
-	// select
-	if s2i32 != 0 {
-		// s0i32 = s0i32
-	} else {
-		s0i32 = s1i32
-	}
-	// const
-	s1i32 = -2046
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// set_local
-	l1 = s0i32
-	// br
-	goto lbl0
-	// end_block
-lbl1:
+	s4i64 = 32
+	// binary: i64.shr_u
+	s3i64 = int64(uint64(s3i64) >> (uint64(s4i64) & 63))
+	// tee_local
+	l2 = s3i64
+	// binary: i64.mul
+	s2i64 = s2i64 * s3i64
+	// binary: i64.add
+	s1i64 = s1i64 + s2i64
 	// get_local
-	s0i32 = l1
+	s2i64 = l3
 	// const
-	s1i32 = -1023
-	// binary: i32.gt_s
-	if s0i32 > s1i32 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl0
-	}
+	s3i64 = 4294967295
+	// binary: i64.and
+	s2i64 = s2i64 & s3i64
+	// tee_local
+	l3 = s2i64
 	// get_local
-	s0f64 = l0
+	s3i64 = l1
 	// const
-	s1f64 = 2.004168360008973e-292
-	// binary: f64.mul
-	s0f64 = s0f64 * s1f64
-	// set_local
-	l0 = s0f64
-	// block
+	s4i64 = 4294967295
+	// binary: i64.and
+	s3i64 = s3i64 & s4i64
+	// tee_local
+	l1 = s3i64
+	// binary: i64.mul
+	s2i64 = s2i64 * s3i64
+	// tee_local
+	l5 = s2i64
+	// const
+	s3i64 = 32
+	// binary: i64.shr_u
+	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
 	// get_local
-	s0i32 = l1
-	// const
-	s1i32 = -1992
-	// binary: i32.le_u
-	if uint32(s0i32) <= uint32(s1i32) {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl3
-	}
+	s3i64 = l3
 	// get_local
-	s0i32 = l1
+	s4i64 = l2
+	// binary: i64.mul
+	s3i64 = s3i64 * s4i64
+	// binary: i64.add
+	s2i64 = s2i64 + s3i64
+	// tee_local
+	l3 = s2i64
 	// const
-	s1i32 = 969
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// set_local
-	l1 = s0i32
-	// br
-	goto lbl0
-	// end_block
-lbl3:
+	s3i64 = 32
+	// binary: i64.shr_u
+	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
+	// binary: i64.add
+	s1i64 = s1i64 + s2i64
 	// get_local
-	s0f64 = l0
+	s2i64 = l3
 	// const
-	s1f64 = 2.004168360008973e-292
-	// binary: f64.mul
-	s0f64 = s0f64 * s1f64
-	// set_local
-	l0 = s0f64
+	s3i64 = 4294967295
+	// binary: i64.and
+	s2i64 = s2i64 & s3i64
 	// get_local
-	s0i32 = l1
-	// const
-	s1i32 = -2960
+	s3i64 = l4
 	// get_local
-	s2i32 = l1
+	s4i64 = l1
+	// binary: i64.mul
+	s3i64 = s3i64 * s4i64
+	// binary: i64.add
+	s2i64 = s2i64 + s3i64
+	// tee_local
+	l3 = s2i64
 	// const
-	s3i32 = -2960
-	// binary: i32.gt_u
-	if uint32(s2i32) > uint32(s3i32) {
-		s2i32 = 1
-	} else {
-		s2i32 = 0
-	}
-	// select
-	if s2i32 != 0 {
-		// s0i32 = s0i32
-	} else {
-		s0i32 = s1i32
-	}
-	// const
-	s1i32 = 1938
-	// binary: i32.add
-	s0i32 = s0i32 + s1i32
-	// set_local
-	l1 = s0i32
-	// end_block
-lbl0:
+	s3i64 = 32
+	// binary: i64.shr_u
+	s2i64 = int64(uint64(s2i64) >> (uint64(s3i64) & 63))
+	// binary: i64.add
+	s1i64 = s1i64 + s2i64
+	// store: i64.store
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+8):], uint64(s1i64))
 	// get_local
-	s0f64 = l0
+	s0i32 = l0
 	// get_local
-	s1i32 = l1
+	s1i64 = l3
 	// const
-	s2i32 = 1023
-	// binary: i32.add
-	s1i32 = s1i32 + s2i32
-	// unary: i64.extend_u/i32
-	s1i64 = int64(uint32(s1i32))
-	// const
-	s2i64 = 52
+	s2i64 = 32
 	// binary: i64.shl
 	s1i64 = s1i64 << (uint64(s2i64) & 63)
-	// unary: f64.reinterpret/i64
-	s1f64 = math.Float64frombits(uint64(s1i64))
-	// binary: f64.mul
-	s0f64 = s0f64 * s1f64
-	// return
-	return s0f64
+	// get_local
+	s2i64 = l5
+	// const
+	s3i64 = 4294967295
+	// binary: i64.and
+	s2i64 = s2i64 & s3i64
+	// binary: i64.or
+	s1i64 = s1i64 | s2i64
+	// store: i64.store
+	binary.LittleEndian.PutUint64(ctx.Mem[int(s0i32+0):], uint64(s1i64))
 }

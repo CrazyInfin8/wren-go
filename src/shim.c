@@ -1,6 +1,6 @@
 #define IMPORT(mod, name) __attribute__((import_module(#mod), import_name(#name)))
 #define EXPORT(name) __attribute__((export_name(#name)))
-
+#include <string.h>
 #include <wren.h>
 WrenVM* vm;
 
@@ -71,6 +71,9 @@ static WrenForeignClassMethods _bindForeignClassFn(WrenVM* vm, const char* modul
             result.finalize = dispatchFinalizerFn;
         }
     } else {
+        if (strcmp(module, "random") == 0 || strcmp(module, "meta") == 0) {
+            return result;
+        }
         result.allocate = invalidConstructor;
     }
     return result;

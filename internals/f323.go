@@ -110,7 +110,7 @@ func f323(ctx *Context, l0 int32, l1 int64, l2 int32) int32 {
 	// set_local
 	l6 = s0i64
 	// const
-	s0i32 = 10
+	s0i32 = 1
 	// set_local
 	l7 = s0i32
 	// get_local
@@ -118,7 +118,7 @@ func f323(ctx *Context, l0 int32, l1 int64, l2 int32) int32 {
 	// get_local
 	s1i32 = l7
 	// call
-	s0i32 = f311(ctx, s0i64, s1i32)
+	s0i32 = f316(ctx, s0i64, s1i32)
 	// set_local
 	l8 = s0i32
 	// const
@@ -192,7 +192,7 @@ lbl1:
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+0):], uint32(s1i32))
 	// const
-	s0i32 = 4192
+	s0i32 = 3898
 	// set_local
 	l16 = s0i32
 	// get_local
@@ -202,7 +202,7 @@ lbl1:
 	// get_local
 	s2i32 = l5
 	// call
-	s0i64 = f314(ctx, s0i32, s1i32, s2i32)
+	s0i64 = f319(ctx, s0i32, s1i32, s2i32)
 	// set_local
 	l17 = s0i64
 	// get_local

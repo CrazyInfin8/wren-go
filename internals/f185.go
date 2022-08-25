@@ -78,7 +78,7 @@ func f185(ctx *Context, l0 int32, l1 int32) int32 {
 	// set_local
 	l6 = s0i32
 	// const
-	s0i32 = 16
+	s0i32 = 11
 	// set_local
 	l7 = s0i32
 	// get_local
@@ -88,7 +88,7 @@ func f185(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s2i32 = l7
 	// call
-	f322(ctx, s0i32, s1i32, s2i32)
+	f327(ctx, s0i32, s1i32, s2i32)
 	// const
 	s0i32 = 0
 	// set_local

@@ -19,16 +19,18 @@ type ImportedFuncs interface {
 	F7(ctx *Context, p0 int32, p1 int32, p2 int32, p3 int32, p4 int32)
 	// module: wren, field: dispatchFinalizerFn
 	F8(ctx *Context, p0 int32, p1 int32, p2 int32)
-	// module: wasi_snapshot_preview1, field: clock_time_get
-	F9(ctx *Context, p0 int32, p1 int64, p2 int32) int32
+	// module: wren, field: clock
+	F9(ctx *Context) float64
+	// module: wren, field: seed
+	F10(ctx *Context) int32
 	// module: wasi_snapshot_preview1, field: fd_close
-	F10(ctx *Context, p0 int32) int32
+	F11(ctx *Context, p0 int32) int32
 	// module: wasi_snapshot_preview1, field: fd_fdstat_get
-	F11(ctx *Context, p0 int32, p1 int32) int32
+	F12(ctx *Context, p0 int32, p1 int32) int32
 	// module: wasi_snapshot_preview1, field: fd_seek
-	F12(ctx *Context, p0 int32, p1 int64, p2 int32, p3 int32) int32
+	F13(ctx *Context, p0 int32, p1 int64, p2 int32, p3 int32) int32
 	// module: wasi_snapshot_preview1, field: fd_write
-	F13(ctx *Context, p0 int32, p1 int32, p2 int32, p3 int32) int32
+	F14(ctx *Context, p0 int32, p1 int32, p2 int32, p3 int32) int32
 	// module: wasi_snapshot_preview1, field: proc_exit
-	F14(ctx *Context, p0 int32)
+	F15(ctx *Context, p0 int32)
 }

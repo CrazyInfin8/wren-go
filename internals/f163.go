@@ -140,15 +140,15 @@ func f163(ctx *Context, l0 int32, l1 int32) int32 {
 	// set_local
 	l11 = s0i32
 	// const
-	s0i32 = 0
+	s0i32 = 1
 	// set_local
 	l12 = s0i32
 	// const
-	s0i32 = 1
+	s0i32 = 0
 	// set_local
 	l13 = s0i32
 	// const
-	s0i32 = 1423
+	s0i32 = 1547
 	// set_local
 	l14 = s0i32
 	// const
@@ -188,7 +188,7 @@ func f163(ctx *Context, l0 int32, l1 int32) int32 {
 	// get_local
 	s5i32 = l14
 	// call
-	s0i32 = f319(ctx, s0i32, s1i32, s2i32, s3i32, s4i32, s5i32)
+	s0i32 = f324(ctx, s0i32, s1i32, s2i32, s3i32, s4i32, s5i32)
 	// set_local
 	l19 = s0i32
 	// const

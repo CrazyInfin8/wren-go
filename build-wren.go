@@ -42,7 +42,7 @@ func init() {
 func main() {
 	// Fetch wren
 	if _, err := os.Stat("wren"); os.IsNotExist(err) {
-		Must(Command("git", "clone", "-b", "made-for-embedding", "https://github.com/crazyinfin8/wren").Run())
+		Must(Command("git", "clone", "-b", "made-for-wasm", "https://github.com/crazyinfin8/wren").Run())
 	} else {
 		Must(err)
 		fmt.Println("Wren Exists already")
@@ -122,7 +122,7 @@ func main() {
 	}
 	// TODO: It appears that the files for wasi-sdk are closed but still held by some process so cannot be executed. Currently unsure how to resolve this issue but could work around it by running this script twice.
 	// Create wren.wasm
-	Must(Command("./wasi-sdk/bin/clang", append([]string{"-Iwren/src/include", "-Iwren/src/optional", "-Iwren/src/vm", "-D_WASI_EMULATED_PROCESS_CLOCKS", "-lwasi-emulated-process-clocks", "-Wdeprecated-register" /*"-Os",*/, "wren/wren.c", "src/*.c", "-o", "wren.wasm"}, GetExports()...)...).Run())
+	Must(Command("./wasi-sdk/bin/clang", append([]string{"-Iwren/src/include", "-Iwren/src/optional", "-Iwren/src/vm", /*"-D_WASI_EMULATED_PROCESS_CLOCKS", "-lwasi-emulated-process-clocks",*/ "-Wdeprecated-register" /*"-Os",*/, "src/*.c", "wren/wren.c", "-o", "wren.wasm"}, GetExports()...)...).Run())
 	// Install wagu
 	Must(Command("go", "install", "github.com/crazyinfin8/wagu/cmd@latest").Run())
 	// Get path of Wagu

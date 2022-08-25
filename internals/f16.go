@@ -7,7 +7,7 @@ func f16(ctx *Context) {
 	_ = s0i32
 	// block
 	// call
-	s0i32 = f529(ctx)
+	s0i32 = f18(ctx)
 	// tee_local
 	l0 = s0i32
 	// unary: i32.eqz
@@ -23,7 +23,7 @@ func f16(ctx *Context) {
 	// get_local
 	s0i32 = l0
 	// call
-	f555(ctx, s0i32)
+	f551(ctx, s0i32)
 	// unreachable
 	panic("unreachable executed")
 	// end_block

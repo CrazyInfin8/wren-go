@@ -9,6 +9,13 @@ import (
 	"github.com/crazyinfin8/wren-go/internals"
 )
 
+type FnID struct {
+	module    string
+	class     string
+	signature string
+	static    bool
+}
+
 func Test(t *testing.T) {
 	cfg := wren.Config{}
 
@@ -54,12 +61,6 @@ func TestForeignFunctions(t *testing.T) {
 		return
 	}
 
-	type FnID struct {
-		module    string
-		class     string
-		signature string
-		static    bool
-	}
 	fns := map[FnID]func(wren.VM){
 		{"a", "A", "sayHello()", true}: func(v wren.VM) {
 			t.Log("Hello from foreign function")
@@ -158,7 +159,7 @@ func TestExit(t *testing.T) {
 		}
 	}()
 
-	time.Sleep(15 * time.Microsecond)
+	time.Sleep(3 * time.Microsecond)
 	vm.Exit()
 }
 
@@ -196,5 +197,88 @@ func TestOOM(t *testing.T) {
 
 	System.print(sum)
 	System.print("elapsed: %(System.clock - start)")
+	`)
+}
+
+func TestClock(t *testing.T) {
+	cfg := wren.Config{}
+
+	cfg.WriteFn = func(vm wren.VM, message string) { t.Log(message) }
+
+	cfg.ErrorFn = func(vm wren.VM, err error) { t.Error(err.Error()) }
+
+	vm := wren.NewVM(cfg)
+
+	tick := time.NewTicker(time.Second)
+	i := 0
+	for i < 10 {
+		<-tick.C
+		vm.Interpret("main", `System.write("%(System.clock)\r")`)
+		i++
+	}
+	tick.Stop()
+}
+
+func TestRand(t *testing.T) {
+	cfg := wren.Config{}
+
+	cfg.WriteFn = func(vm wren.VM, message string) { t.Log(message) }
+
+	cfg.ErrorFn = func(vm wren.VM, err error) { t.Error(err.Error()) }
+
+	fns := map[FnID]func(wren.VM){
+		{"main", "Time", "wait(_)", true}: func(vm wren.VM) {
+			time.Sleep(time.Duration(vm.GetNum(1)) * time.Second)
+		},
+	}
+
+	cfg.BindForeignMethodFn = func(vm wren.VM, module, class, signature string,
+		static bool) func(wren.VM) {
+		return fns[FnID{module, class, signature, static}]
+	}
+	vm := wren.NewVM(cfg)
+	vm.Interpret("main", `
+	import "random" for Random
+
+	foreign class Time {
+		// sometimes it seems as if time doesn't increase when running.
+		// so we will force it to wait some bit
+		foreign static wait(t)
+	}
+	var rand
+
+	var deepEqual = Fn.new{|a, b|
+		if(a.count != b.count) return false
+		for (i in 1...a.count) if(a[i] != b[i]) return false
+		return true
+	}
+
+	/* --- random with different seeds --- */
+
+	Time.wait(1)
+	rand = Random.new()
+	var a = []
+	for(i in 0...100) a.add(rand.int())
+
+	Time.wait(1)
+	rand = Random.new()
+	var b = []
+	for(i in 0...100) b.add(rand.int())
+
+	if (deepEqual.call(a, b)) Fiber.abort("Random is not random enough (or we are just really unlucky)")
+
+	/* --- random with same seed --- */
+
+	Time.wait(1)
+	rand = Random.new(0)
+	a = []
+	for(i in 0...100) a.add(rand.int())
+	
+	Time.wait(1)
+	rand = Random.new(0)
+	b = []
+	for(i in 0...100) b.add(rand.int())
+
+	if (!deepEqual.call(a, b)) Fiber.abort("Random should have been equal but is not")
 	`)
 }

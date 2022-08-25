@@ -2,6 +2,7 @@ package wren
 
 import (
 	"io"
+	"time"
 
 	"github.com/crazyinfin8/wren-go/internals"
 )
@@ -18,6 +19,7 @@ type env struct {
 	fns        map[int32]func(VM)
 	finalizers map[int32]func(VM, interface{})
 
+	startTime time.Time
 	UserData any
 }
 
@@ -145,35 +147,40 @@ func (e *env) F8(ctx *internals.Context, vm int32, data int32, userData int32) {
 	delete(e.objs, data)
 }
 
-// module: wasi_snapshot_preview1, field: clock_time_get
-func (e *env) F9(ctx *internals.Context, p0 int32, p1 int64, p2 int32) int32 {
-	return e.clock_time_get(ctx, p0, p1, p2)
+// module: wren, field: clock
+func (e *env)F9(ctx *internals.Context) float64 {
+	return time.Since(e.startTime).Seconds()
+}
+
+// module: wren, field: seed
+func (e *env) F10(ctx *internals.Context) int32 {
+	return int32(time.Since(e.startTime).Nanoseconds())
 }
 
 // module: wasi_snapshot_preview1, field: fd_close
-func (e *env) F10(ctx *internals.Context, p0 int32) int32 {
+func (e *env) F11(ctx *internals.Context, p0 int32) int32 {
 	return e.fd_close(ctx, p0)
 }
 
 // module: wasi_snapshot_preview1, field: fd_fdstat_get
-func (e *env) F11(ctx *internals.Context, p0 int32, p1 int32) int32 {
+func (e *env) F12(ctx *internals.Context, p0 int32, p1 int32) int32 {
 	return e.fd_fdstat_get(ctx, p0, p1)
 }
 
 // module: wasi_snapshot_preview1, field: fd_seek
-func (e *env) F12(ctx *internals.Context, p0 int32, p1 int64, p2 int32,
+func (e *env) F13(ctx *internals.Context, p0 int32, p1 int64, p2 int32,
 	p3 int32) int32 {
 	return e.fd_seek(ctx, p0, p1, p2, p3)
 }
 
 // module: wasi_snapshot_preview1, field: fd_write
-func (e *env) F13(ctx *internals.Context, p0 int32, p1 int32, p2 int32,
+func (e *env) F14(ctx *internals.Context, p0 int32, p1 int32, p2 int32,
 	p3 int32) int32 {
 	return e.fd_write(ctx, p0, p1, p2, p3)
 }
 
 // module: wasi_snapshot_preview1, field: proc_exit
-func (e *env) F14(ctx *internals.Context, p0 int32) {
+func (e *env) F15(ctx *internals.Context, p0 int32) {
 	e.proc_exit(ctx, p0)
 }
 

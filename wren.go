@@ -6,6 +6,7 @@ import (
 	"io"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/crazyinfin8/wren-go/internals"
 )
@@ -591,6 +592,7 @@ func NewVM(cfg Config) VM {
 	e.cfg = cfg
 	e.ctx = internals.NewContext(e)
 	e.ctx.MaxSize = 0x7FFFFFFF
+	e.startTime = time.Now()
 	e.ctx.Start()
 	return VM{e}
 }

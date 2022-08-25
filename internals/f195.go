@@ -2,6 +2,7 @@ package internals
 
 import (
 	"encoding/binary"
+	"math"
 )
 
 func f195(ctx *Context, l0 int32, l1 int32) int32 {
@@ -70,13 +71,13 @@ func f195(ctx *Context, l0 int32, l1 int32) int32 {
 	// store: i32.store
 	binary.LittleEndian.PutUint32(ctx.Mem[int(s0i32+8):], uint32(s1i32))
 	// const
-	s0f64 = 2.2250738585072014e-308
+	s0f64 = math.Inf(0)
 	// set_local
 	l5 = s0f64
 	// get_local
 	s0f64 = l5
 	// call
-	s0i64 = f321(ctx, s0f64)
+	s0i64 = f326(ctx, s0f64)
 	// set_local
 	l6 = s0i64
 	// get_local

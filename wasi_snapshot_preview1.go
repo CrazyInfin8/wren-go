@@ -29,6 +29,7 @@ var StdOut io.Writer
 // contain debug information from the incorrect use of wren.
 var StdErr io.Writer
 
+// TODO: of all things, clock seems to be used by wren for benchmarking. We can support clock with a custom imported function (and try to remove the dependancy from the deprecated clock frunction from wasi32)
 func (wasi_snapshot_preview1) clock_time_get(ctx *internals.Context, id int32,
 	precision int64, resultTimestamp int32) (errno int32) {
 	if id == int32(clockIDMonotonic) {

@@ -96,7 +96,7 @@ func f361(ctx *Context, l0 int32, l1 int32) {
 	// get_local
 	s3i32 = l8
 	// call
-	s0i32 = f298(ctx, s0i32, s1i32, s2i32, s3i32)
+	s0i32 = f303(ctx, s0i32, s1i32, s2i32, s3i32)
 	// get_local
 	s0i32 = l4
 	// load: i32.load

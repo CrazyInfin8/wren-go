@@ -1,64 +1,18 @@
 package internals
 
-import (
-	"math"
-)
-
-func f543(ctx *Context, l0 float64, l1 float64) float64 {
+func f543(ctx *Context, l0 int32) int32 {
 	var s0i32 int32
 	_ = s0i32
-	var s0f64 float64
-	_ = s0f64
-	var s1f64 float64
-	_ = s1f64
-	// block
+	var s1i32 int32
+	_ = s1i32
 	// get_local
-	s0f64 = l0
-	// get_local
-	s1f64 = l0
-	// binary: f64.ne
-	if s0f64 != s1f64 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl0
-	}
-	// block
-	// get_local
-	s0f64 = l1
-	// get_local
-	s1f64 = l1
-	// binary: f64.eq
-	if s0f64 == s1f64 {
-		s0i32 = 1
-	} else {
-		s0i32 = 0
-	}
-	// br_if
-	if s0i32 != 0 {
-		goto lbl1
-	}
-	// get_local
-	s0f64 = l0
+	s0i32 = l0
+	// call
+	s0i32 = f11(ctx, s0i32)
+	// const
+	s1i32 = 65535
+	// binary: i32.and
+	s0i32 = s0i32 & s1i32
 	// return
-	return s0f64
-	// end_block
-lbl1:
-	// get_local
-	s0f64 = l0
-	// get_local
-	s1f64 = l1
-	// binary: f64.max
-	s0f64 = math.Max(s0f64, s1f64)
-	// set_local
-	l1 = s0f64
-	// end_block
-lbl0:
-	// get_local
-	s0f64 = l1
-	// return
-	return s0f64
+	return s0i32
 }

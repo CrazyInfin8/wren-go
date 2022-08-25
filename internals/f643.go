@@ -3,12 +3,10 @@ package internals
 func f643(ctx *Context, l0 int32) {
 	var s0i32 int32
 	_ = s0i32
-	// call
-	f15(ctx)
 	// get_local
 	s0i32 = l0
 	// call
-	f411(ctx, s0i32)
+	f416(ctx, s0i32)
 	// call
-	f554(ctx)
+	f550(ctx)
 }
